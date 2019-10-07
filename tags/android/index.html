@@ -2,7 +2,7 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>标签: ConstrantLayout - 小小代码网</title>
+<title>标签: android - 小小代码网</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
@@ -11,7 +11,7 @@
 <meta name="keywords" content="博客 Blog 程序员">
 <meta property="og:type" content="website">
 <meta property="og:title" content="小小代码网">
-<meta property="og:url" content="https://rookielord.github.io/tags/ConstrantLayout/index.html">
+<meta property="og:url" content="https://rookielord.github.io/tags/android/index.html">
 <meta property="og:site_name" content="小小代码网">
 <meta property="og:description" content="一个程序员的个人博客">
 <meta property="og:locale" content="zh-CN">
@@ -147,7 +147,7 @@ var _hmt = _hmt || [];
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
             <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">ConstrantLayout</a></li>
+            <li class="is-active"><a href="#" aria-current="page">android</a></li>
         </ul>
         </nav>
     </div>
@@ -159,13 +159,13 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-09-28T13:53:15.000Z">2019-09-28</time>
+                <time class="level-item has-text-grey" datetime="2019-10-06T10:31:01.000Z">2019-10-06</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    1 分钟 读完 (大约 139 个字)
+                    6 分钟 读完 (大约 866 个字)
                 </span>
                 
                 
@@ -174,42 +174,72 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/09/28/ConstrantLayout/">ConstrantLayout布局相关</a>
+                <a class="has-link-black-ter" href="/2019/10/06/aidl1/">aidl的使用心得（一）</a>
             
         </h1>
         <div class="content">
-            <p>#定义</p>
-<p>一个功能更加强大的RelativeLayout，谷歌官网推荐</p>
-<p>#功能</p>
-<p>1.约束</p>
-<p>#MotionLayout</p>
-<ol>
-<li>是ConstraintLayout的子类</li>
-<li>在单独的xml文件中设置约束条件</li>
-<li>直接在两个ConstrainSet之间进行动画过度<ul>
-<li>过度效果一样</li>
-<li>动画定制</li>
+            <h1 id="什么是AIDL"><a href="#什么是AIDL" class="headerlink" title="什么是AIDL?"></a>什么是AIDL?</h1><ul>
+<li>AIDL是指IPC(Internal progress Communicate)直译为进程间通信，在Android端就是指通俗的指两个APP之间通信。本人认为就是本地引用远程服务，即在客户端（本地）引用服务端（远程）的服务。</li>
 </ul>
-</li>
+<h1 id="AIDL应用场景"><a href="#AIDL应用场景" class="headerlink" title="AIDL应用场景"></a>AIDL应用场景</h1><ol>
+<li>就如他的定义一样，一般用于两个APP之间通信，虽然可以用进程间通信可以用全局广播，但由于广播安全性低，且所有APP都能收到。尤其是<strong>有序广播</strong>，其可以被拦截特性，顾采用AIDL方式进行通信。</li>
+<li>一般来说就是支付宝支付，这种就需要使用AIDL方式，确保支持返回成功。</li>
+</ol>
+<p>贴图支付宝</p>
+<h1 id="AIDL使用"><a href="#AIDL使用" class="headerlink" title="AIDL使用"></a>AIDL使用</h1><p>为了方便管理分为3个模块</p>
+<h2 id="包含内容"><a href="#包含内容" class="headerlink" title="包含内容"></a>包含内容</h2><h3 id="一、服务端-APP"><a href="#一、服务端-APP" class="headerlink" title="一、服务端(APP)"></a>一、服务端<strong>(APP)</strong></h3><ol>
+<li>定义Service服务，并写好服务中与变量的交互</li>
+</ol>
+<h3 id="二、客户端-APP"><a href="#二、客户端-APP" class="headerlink" title="二、客户端(APP)"></a>二、客户端<strong>(APP)</strong></h3><ol>
+<li>引用包含Aidl Module的aar文件</li>
+<li>绑定对应服务</li>
+</ol>
+<h3 id="三、AIDL-Module-Lib"><a href="#三、AIDL-Module-Lib" class="headerlink" title="三、AIDL Module(Lib)"></a>三、AIDL Module<strong>(Lib)</strong></h3><ol>
+<li>aidl文件夹：包括对应的aidl接口和传输的对象</li>
+<li>常量文件，一般包含服务端的服务的action和packageName，确保能够正常引用</li>
+<li>用于生成aar文件，方便引用</li>
+</ol>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="AIDL-Module"><a href="#AIDL-Module" class="headerlink" title="AIDL Module"></a>AIDL Module</h3><ol>
+<li>创建Aidl的Module包<br><img src="https://www.minicoder.cn/gallery/aidl/create_module.gif" alt="创建Module"></li>
+</ol>
+<ol start="2">
+<li>创建Aidl文件<br>其中包含<strong>定义接口</strong>和<strong>传递的对象</strong></li>
+</ol>
+<p><img src="https://www.minicoder.cn/gallery/aidl/create_aidl_file1.png" alt="创建aidl1"></p>
+<p><img src="https://www.minicoder.cn/gallery/aidl/create_aidl_file2.png" alt="创建aidl2"></p>
+<p><img src="https://www.minicoder.cn/gallery/aidl/Interface_create.png" alt="包含的文档"></p>
+<h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><ul>
+<li>传递的对象不仅在aidl目录下有，也需要在对应java目录下存在，并且必须实现Parcelable接口</li>
+<li>aidl文件中需要自己全部手写，没有自动提示</li>
+<li>传递对象的aidl文件需要import对应类所在的位置，以确保能够被找到</li>
+</ul>
+<ol start="3">
+<li>buid Module，确保自动生成java对应的接口文件</li>
+</ol>
+<p><img src="https://www.minicoder.cn/gallery/aidl/create_class.png" alt="传递的类文件"></p>
+<ol start="4">
+<li>确定服务端APP的报名和服务的action名，写入常量中</li>
+</ol>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * 此处定义服务的相关常量，以确保在客户端时能够具体找到。具体为在aidlserver的Mainifest中写的内容</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BaseConstant</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String ACTION = <span class="hljs-string">"com.minicoder.peopleservice"</span>;</span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String PACKAGENAME = <span class="hljs-string">"com.minicoder.aidlserver"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="服务端-APP"><a href="#服务端-APP" class="headerlink" title="服务端(APP)"></a>服务端<strong>(APP)</strong></h3><ol>
+<li>引用Aidl Moudle<br> implementation project(path: ‘:aidllib’)</li>
+<li>定义Service，注意在manifest中设置action名称，定义一个内部类Binder继承Stub,并实现对应aidl中定义的相关方法</li>
+</ol>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PersonService</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Service</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">private</span> Common mComm = Common.getInstance();</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> IBinder <span class="hljs-title">onBind</span><span class="hljs-params">(Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> PersonBinder();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * 此处实现aidl自动生成的Stub类</span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line">    <span class="hljs-keyword">private</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PersonBinder</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">IChatAidl</span>.<span class="hljs-title">Stub</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> Person <span class="hljs-title">getPerson</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> RemoteException </span>&#123;</span><br><span class="line">            Person controller = mComm.getController();</span><br><span class="line">            <span class="hljs-keyword">return</span> controller;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">@Override</span></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">addPerson</span><span class="hljs-params">(Person p)</span> <span class="hljs-keyword">throws</span> RemoteException </span>&#123;</span><br><span class="line">            List&lt;Person&gt; personList = mComm.getPersons();</span><br><span class="line">            <span class="hljs-keyword">boolean</span> success = personList.add(p);</span><br><span class="line">            <span class="hljs-keyword">return</span> success ? personList.size() - <span class="hljs-number">1</span> : -<span class="hljs-number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;service android:name=&quot;.PersonService&quot; &gt;</span><br><span class="line">           &lt;intent-filter&gt;</span><br><span class="line">               &lt;action android:name=&quot;com.minicoder.peopleservice&quot;/&gt;</span><br><span class="line">           &lt;/intent-filter&gt;</span><br><span class="line">       &lt;/service&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="客户端-APP"><a href="#客户端-APP" class="headerlink" title="客户端(APP)"></a>客户端<strong>(APP)</strong></h3><ol>
+<li>引用Aidl Moudle</li>
+<li>绑定服务</li>
+<li>使用Stub.asInterface(service),将其转化为对应接口</li>
+<li>调用接口中的方法<br>注意：</li>
 </ol>
 <hr>
-<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><ol>
-<li>可折叠的header</li>
-<li>状态反馈</li>
-<li>过度效果</li>
-<li>幻灯片？</li>
-</ol>
-<hr>
-<p>##使用的类</p>
 <ul>
-<li>MotionScence</li>
+<li>此处获取的对象，不是服务端中的对象，所以在此处更改对象里面的值服务端不会更新，客户端只能将需要修改的值传入然后在服务端的binder中再进行修改</li>
 </ul>
-<p>##具体使用<br>以下说明的都是demo中的内容</p>
-<ul>
-<li>基础的布局：<motionlayout>包裹的内容：space_layout.xml</motionlayout></li>
-<li>过度动画：<motationscene>包裹的内容：space_scence.xml</motationscene></li>
-<li>Start to End</li>
-</ul>
+<p><a href="https://download.csdn.net/my" title="下载" target="_blank" rel="noopener">源码下载地址</a></p>
+<p>演示demo</p>
+<p><img src="https://www.minicoder.cn/gallery/aidl/demo.gif" alt="包含的文档"></p>
 
         </div>
         
@@ -268,7 +298,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        6
+                        7
                     </p>
                 </div>
             </div>
@@ -288,7 +318,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        10
+                        12
                     </p>
                 </div>
             </div>
@@ -421,7 +451,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/ConstrantLayout/" style="font-size: 10px;">ConstrantLayout</a> <a href="/tags/Enum/" style="font-size: 10px;">Enum</a> <a href="/tags/IntDef/" style="font-size: 10px;">IntDef</a> <a href="/tags/MarkdownPad2/" style="font-size: 10px;">MarkdownPad2</a> <a href="/tags/cmake/" style="font-size: 20px;">cmake</a> <a href="/tags/jar包/" style="font-size: 10px;">jar包</a> <a href="/tags/jni/" style="font-size: 20px;">jni</a> <a href="/tags/so/" style="font-size: 10px;">so</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/注解/" style="font-size: 10px;">注解</a>
+        <a href="/tags/Enum/" style="font-size: 10px;">Enum</a> <a href="/tags/IntDef/" style="font-size: 10px;">IntDef</a> <a href="/tags/MarkdownPad2/" style="font-size: 10px;">MarkdownPad2</a> <a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/cmake/" style="font-size: 20px;">cmake</a> <a href="/tags/jar包/" style="font-size: 10px;">jar包</a> <a href="/tags/jni/" style="font-size: 20px;">jni</a> <a href="/tags/so/" style="font-size: 10px;">so</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/注解/" style="font-size: 10px;">注解</a>
     </div>
 </div>
 
@@ -435,6 +465,25 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/06/aidl1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="aidl的使用心得（一）">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-06T10:31:01.000Z">2019-10-06</time></div>
+                    <a href="/2019/10/06/aidl1/" class="has-link-black-ter is-size-6">aidl的使用心得（一）</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -512,25 +561,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/07/22/intDef/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="使用注解机制代替枚举">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-07-22T06:51:41.000Z">2018-07-22</time></div>
-                    <a href="/2018/07/22/intDef/" class="has-link-black-ter is-size-6">使用注解机制代替枚举</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/技巧/">技巧</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -542,6 +572,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/09/">
@@ -590,13 +631,6 @@ var _hmt = _hmt || [];
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/ConstrantLayout/">
-                        <span class="tag">ConstrantLayout</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/Enum/">
                         <span class="tag">Enum</span>
                         <span class="tag is-grey">1</span>
@@ -613,6 +647,20 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/MarkdownPad2/">
                         <span class="tag">MarkdownPad2</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/aidl/">
+                        <span class="tag">aidl</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/android/">
+                        <span class="tag">android</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -648,6 +696,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/win10/">
                         <span class="tag">win10</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/布局/">
+                        <span class="tag">布局</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -684,6 +739,25 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/10/06/aidl1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="aidl的使用心得（一）">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-06T10:31:01.000Z">2019-10-06</time></div>
+                    <a href="/2019/10/06/aidl1/" class="has-link-black-ter is-size-6">aidl的使用心得（一）</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/09/28/ConstrantLayout/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="ConstrantLayout布局相关">
@@ -758,25 +832,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/07/22/intDef/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="使用注解机制代替枚举">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-07-22T06:51:41.000Z">2018-07-22</time></div>
-                    <a href="/2018/07/22/intDef/" class="has-link-black-ter is-size-6">使用注解机制代替枚举</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/技巧/">技巧</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -788,6 +843,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/09/">
@@ -836,13 +902,6 @@ var _hmt = _hmt || [];
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/ConstrantLayout/">
-                        <span class="tag">ConstrantLayout</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/Enum/">
                         <span class="tag">Enum</span>
                         <span class="tag is-grey">1</span>
@@ -859,6 +918,20 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/MarkdownPad2/">
                         <span class="tag">MarkdownPad2</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/aidl/">
+                        <span class="tag">aidl</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/android/">
+                        <span class="tag">android</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -894,6 +967,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/win10/">
                         <span class="tag">win10</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/布局/">
+                        <span class="tag">布局</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
