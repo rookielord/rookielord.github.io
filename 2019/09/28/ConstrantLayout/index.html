@@ -2,23 +2,24 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>标签: Enum - 小小代码网</title>
+<title>ConstrantLayout布局相关 - 小小代码网</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="一个程序员的个人博客">
-<meta name="keywords" content="博客 Blog 程序员">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小小代码网">
-<meta property="og:url" content="https://rookielord.github.io/tags/Enum/index.html">
+    <meta name="description" content="#定义 一个功能更加强大的RelativeLayout，谷歌官网推荐 #功能 1.约束 #MotionLayout  是ConstraintLayout的子类 在单独的xml文件中设置约束条件 直接在两个ConstrainSet之间进行动画过度 过度效果一样 动画定制     作用 可折叠的header 状态反馈 过度效果 幻灯片？   ##使用的类  MotionScence  ##具体使用以下">
+<meta name="keywords" content="ConstrantLayout">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ConstrantLayout布局相关">
+<meta property="og:url" content="https://rookielord.github.io/2019/09/28/ConstrantLayout/index.html">
 <meta property="og:site_name" content="小小代码网">
-<meta property="og:description" content="一个程序员的个人博客">
+<meta property="og:description" content="#定义 一个功能更加强大的RelativeLayout，谷歌官网推荐 #功能 1.约束 #MotionLayout  是ConstraintLayout的子类 在单独的xml文件中设置约束条件 直接在两个ConstrainSet之间进行动画过度 过度效果一样 动画定制     作用 可折叠的header 状态反馈 过度效果 幻灯片？   ##使用的类  MotionScence  ##具体使用以下">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://rookielord.github.io/images/og_image.png">
+<meta property="og:updated_time" content="2019-09-28T15:11:38.237Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小小代码网">
-<meta name="twitter:description" content="一个程序员的个人博客">
+<meta name="twitter:title" content="ConstrantLayout布局相关">
+<meta name="twitter:description" content="#定义 一个功能更加强大的RelativeLayout，谷歌官网推荐 #功能 1.约束 #MotionLayout  是ConstraintLayout的子类 在单独的xml文件中设置约束条件 直接在两个ConstrainSet之间进行动画过度 过度效果一样 动画定制     作用 可折叠的header 状态反馈 过度效果 幻灯片？   ##使用的类  MotionScence  ##具体使用以下">
 <meta name="twitter:image" content="https://rookielord.github.io/images/og_image.png">
 
 
@@ -97,7 +98,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="小小代码网" height="28">
+                <img src="/images/logo.png" alt="ConstrantLayout布局相关" height="28">
             
             </a>
         </div>
@@ -143,33 +144,18 @@ var _hmt = _hmt || [];
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">Enum</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-07-22T06:51:41.000Z">2018-07-22</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/技巧/">技巧</a>
-                </div>
+                <time class="level-item has-text-grey" datetime="2019-09-28T13:53:15.000Z">2019-09-28</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 263 个字)
+                    1 分钟 读完 (大约 139 个字)
                 </span>
                 
                 
@@ -178,46 +164,52 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2018/07/22/intDef/">使用注解机制代替枚举</a>
+                ConstrantLayout布局相关
             
         </h1>
         <div class="content">
-            <h1 id="使用注解等注解代替Enum"><a href="#使用注解等注解代替Enum" class="headerlink" title="使用注解等注解代替Enum"></a>使用注解等注解代替Enum</h1><p>在Android开发过程中，使用Enum所占用的内存比单纯使用int变量定义的内容明显要大，为了提高软件的使用性，建议使用注解的方法。</p>
-<p>#使用方法</p>
-<h2 id="1-引用依赖包"><a href="#1-引用依赖包" class="headerlink" title="1.引用依赖包"></a>1.引用依赖包</h2><p>目前以Android Studio 3.1.2为例子</p>
-<pre><code>`implementation &apos;com.android.support:support-annotations:27.1.1&apos;`
-</code></pre><p>如果是以前的版本则使用</p>
-<pre><code>`compiler &apos;com.android.support:support-annotations:27.1.1&apos;`
-</code></pre><h2 id="2-创建注解类"><a href="#2-创建注解类" class="headerlink" title="2.创建注解类"></a>2.创建注解类</h2><p>如果是以Int作为标志，则使用IntDef的注解，以下以季节为例子</p>
-<pre><code>@IntDef({SPRING, SUMMER, AUTUMN, WINTER})
-@Retention(RetentionPolicy.SOURCE)
-public @interface Season {
-int SPRING = 0;
-int SUMMER = 1;
-int AUTUMN = 2;
-int WINTER = 3;
-}
-</code></pre><p><strong>步骤</strong></p>
-<ul>
-<li>创建interface</li>
-<li>在interface中添加字段</li>
-<li>在interface前面添加@</li>
-<li>添加IntDef({添加之前添加的字段})</li>
-<li>在IntDef后添加@Retention(RetentionPolicy.SOURCE)</li>
+            <p>#定义</p>
+<p>一个功能更加强大的RelativeLayout，谷歌官网推荐</p>
+<p>#功能</p>
+<p>1.约束</p>
+<p>#MotionLayout</p>
+<ol>
+<li>是ConstraintLayout的子类</li>
+<li>在单独的xml文件中设置约束条件</li>
+<li>直接在两个ConstrainSet之间进行动画过度<ul>
+<li>过度效果一样</li>
+<li>动画定制</li>
 </ul>
-<h2 id="3-具体引用"><a href="#3-具体引用" class="headerlink" title="3.具体引用"></a>3.具体引用</h2><pre><code>@Season int season = Season.SPRING;
-switch (season) {
-case Season.AUTUMN:
-break;
-case Season.SPRING:
-break;
-case Season.SUMMER:
-break;
-case Season.WINTER:
-break;
-}
-</code></pre><h2 id="4-备注"><a href="#4-备注" class="headerlink" title="4.备注"></a>4.备注</h2><p> 如果在使用的变量的前方标注了注解，则可以在switch(season)后通过alt+enter直接列举出所有的case情况。</p>
+</li>
+</ol>
+<hr>
+<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><ol>
+<li>可折叠的header</li>
+<li>状态反馈</li>
+<li>过度效果</li>
+<li>幻灯片？</li>
+</ol>
+<hr>
+<p>##使用的类</p>
+<ul>
+<li>MotionScence</li>
+</ul>
+<p>##具体使用<br>以下说明的都是demo中的内容</p>
+<ul>
+<li>基础的布局：<motionlayout>包裹的内容：space_layout.xml</motionlayout></li>
+<li>过度动画：<motationscene>包裹的内容：space_scence.xml</motationscene></li>
+<li>Start to End</li>
+</ul>
 
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/ConstrantLayout/">ConstrantLayout</a>
+                </div>
+            </div>
         </div>
         
         
@@ -229,9 +221,37 @@ break;
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/09/01/cmake3/">
+                <span class="level-item">从零开始使用Cmake进行jni编程教程(三)：jni调用java的方法</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="SOHUCS" sid="2019/09/28/ConstrantLayout/"></div>
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+<script type="text/javascript">
+window.changyan.api.config({
+    appid: 'cytVnvAiO',
+    conf: 'prod_6c71a79949ec3cbf24e18db0099cec31'
+});
+</script>
+
+    </div>
+</div>
 </div>
                 
 
@@ -929,7 +949,7 @@ break;
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="小小代码网" height="28">
+                    <img src="/images/logo.png" alt="ConstrantLayout布局相关" height="28">
                 
                 </a>
                 <p class="is-size-7">

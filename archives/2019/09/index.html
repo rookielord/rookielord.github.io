@@ -2,7 +2,7 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>标签: Enum - 小小代码网</title>
+<title>归档: 2019/9 - 小小代码网</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
@@ -11,7 +11,7 @@
 <meta name="keywords" content="博客 Blog 程序员">
 <meta property="og:type" content="website">
 <meta property="og:title" content="小小代码网">
-<meta property="og:url" content="https://rookielord.github.io/tags/Enum/index.html">
+<meta property="og:url" content="https://rookielord.github.io/archives/2019/09/index.html">
 <meta property="og:site_name" content="小小代码网">
 <meta property="og:description" content="一个程序员的个人博客">
 <meta property="og:locale" content="zh-CN">
@@ -142,94 +142,33 @@ var _hmt = _hmt || [];
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+
+<div class="card widget">
     <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">Enum</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
-    
-    <div class="card-content article ">
+        <h3 class="tag is-link">
+        九月 2019
+        </h3>
+        <div class="timeline">
         
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-07-22T06:51:41.000Z">2018-07-22</time>
+            <article class="media">
                 
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/技巧/">技巧</a>
+                <div class="media-content">
+                    <div class="content">
+                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-09-28T13:53:15.000Z">2019-09-28</time>
+                        <a href="/2019/09/28/ConstrantLayout/" class="has-link-black-ter is-size-6">ConstrantLayout布局相关</a>
+                        <div class="level article-meta is-mobile">
+                            <div class="level-left">
+                                
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    2 分钟 读完 (大约 263 个字)
-                </span>
-                
-                
-            </div>
+            </article>
+        
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2018/07/22/intDef/">使用注解机制代替枚举</a>
-            
-        </h1>
-        <div class="content">
-            <h1 id="使用注解等注解代替Enum"><a href="#使用注解等注解代替Enum" class="headerlink" title="使用注解等注解代替Enum"></a>使用注解等注解代替Enum</h1><p>在Android开发过程中，使用Enum所占用的内存比单纯使用int变量定义的内容明显要大，为了提高软件的使用性，建议使用注解的方法。</p>
-<p>#使用方法</p>
-<h2 id="1-引用依赖包"><a href="#1-引用依赖包" class="headerlink" title="1.引用依赖包"></a>1.引用依赖包</h2><p>目前以Android Studio 3.1.2为例子</p>
-<pre><code>`implementation &apos;com.android.support:support-annotations:27.1.1&apos;`
-</code></pre><p>如果是以前的版本则使用</p>
-<pre><code>`compiler &apos;com.android.support:support-annotations:27.1.1&apos;`
-</code></pre><h2 id="2-创建注解类"><a href="#2-创建注解类" class="headerlink" title="2.创建注解类"></a>2.创建注解类</h2><p>如果是以Int作为标志，则使用IntDef的注解，以下以季节为例子</p>
-<pre><code>@IntDef({SPRING, SUMMER, AUTUMN, WINTER})
-@Retention(RetentionPolicy.SOURCE)
-public @interface Season {
-int SPRING = 0;
-int SUMMER = 1;
-int AUTUMN = 2;
-int WINTER = 3;
-}
-</code></pre><p><strong>步骤</strong></p>
-<ul>
-<li>创建interface</li>
-<li>在interface中添加字段</li>
-<li>在interface前面添加@</li>
-<li>添加IntDef({添加之前添加的字段})</li>
-<li>在IntDef后添加@Retention(RetentionPolicy.SOURCE)</li>
-</ul>
-<h2 id="3-具体引用"><a href="#3-具体引用" class="headerlink" title="3.具体引用"></a>3.具体引用</h2><pre><code>@Season int season = Season.SPRING;
-switch (season) {
-case Season.AUTUMN:
-break;
-case Season.SPRING:
-break;
-case Season.SUMMER:
-break;
-case Season.WINTER:
-break;
-}
-</code></pre><h2 id="4-备注"><a href="#4-备注" class="headerlink" title="4.备注"></a>4.备注</h2><p> 如果在使用的变量的前方标注了注解，则可以在switch(season)后通过alt+enter直接列举出所有的case情况。</p>
-
-        </div>
-        
-        
-        
     </div>
 </div>
-
-
-
-
-
-
 
 
 </div>
