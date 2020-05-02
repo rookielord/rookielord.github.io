@@ -149,6 +149,59 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-05-02T14:26:06.000Z">2020-05-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 分钟 读完 (大约 401 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/05/02/gradle-tech/">AS</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="新建项目加载下载aar包失败"><a href="#新建项目加载下载aar包失败" class="headerlink" title="新建项目加载下载aar包失败"></a>新建项目加载下载aar包失败</h1><p>各位朋友们，由于AS是由Google公司基于intelij二次开发的开发工具。众所周知在国内下载国外的一些东西会被X掉。从而很多导致很多人员经常卡住，出现以下情况</p>
+<p><img src="https://www.minicoder.cn/gallery/gradle/2020-05-02_223221.png" alt="加载图片"></p>
+<hr>
+<p>以上情况出现后，在网络正常且1min中内仍无变化就100%被X了，导致无法下载。最快的解决方案为<br>在项目最外层的build.gradle的文件的<strong>repositories</strong>节点中添加阿里云的maven仓库[注意：在<strong>allprojects</strong>和<strong>buildscript</strong>都添加]</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">    maven &#123;</span><br><span class="line">        url &apos;http://maven.aliyun.com/nexus/content/groups/public/&apos;</span><br><span class="line">    &#125;</span><br><span class="line">    google()</span><br><span class="line">    jcenter()</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是这并非最优解，用户可以直接修改新建项目时的gradle配置模板，从而每次新建项目中自动添加阿里云的maven仓库。</p>
+<p>步骤如下：</p>
+<ol>
+<li>定位到AS的安装目录下的gradle模板，一般为<code>C:\Program Files\Android\Android Studio\plugins\android\lib\templates\gradle-projects</code></li>
+<li>此处我们只对新建Android项目的gradle配置进行修改，打开<code>C:\Program Files\Android\Android Studio\plugins\android\lib\templates\gradle-projects\NewAndroidProject\root</code>下的build.gradle.ftl文件，将阿里云maven插入。</li>
+</ol>
+<p><img src="https://www.minicoder.cn/gallery/gradle/2020-05-02_230732.png" alt="修改后模板"></p>
+<p>注意：此处的最好再修改前，建立一个副本文件，以确保在升级AS版本时回复。本人亲测，修改后的build.gradle.ftl会导致升级失败，升级时需要还原默认的模板文件。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-12-29T06:25:38.000Z">2019-12-29</time>
                 
                 
@@ -928,7 +981,7 @@ break;
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        8
+                        9
                     </p>
                 </div>
             </div>
@@ -948,7 +1001,7 @@ break;
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        12
+                        14
                     </p>
                 </div>
             </div>
@@ -1081,7 +1134,7 @@ break;
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Enum/" style="font-size: 10px;">Enum</a> <a href="/tags/IntDef/" style="font-size: 10px;">IntDef</a> <a href="/tags/MarkdownPad2/" style="font-size: 10px;">MarkdownPad2</a> <a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/cmake/" style="font-size: 20px;">cmake</a> <a href="/tags/jar包/" style="font-size: 10px;">jar包</a> <a href="/tags/jni/" style="font-size: 20px;">jni</a> <a href="/tags/so/" style="font-size: 10px;">so</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/注解/" style="font-size: 10px;">注解</a>
+        <a href="/tags/Enum/" style="font-size: 10px;">Enum</a> <a href="/tags/IntDef/" style="font-size: 10px;">IntDef</a> <a href="/tags/MarkdownPad2/" style="font-size: 10px;">MarkdownPad2</a> <a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/cmake/" style="font-size: 20px;">cmake</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/jar包/" style="font-size: 10px;">jar包</a> <a href="/tags/jni/" style="font-size: 20px;">jni</a> <a href="/tags/so/" style="font-size: 10px;">so</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/开发技巧/" style="font-size: 10px;">开发技巧</a> <a href="/tags/注解/" style="font-size: 10px;">注解</a>
     </div>
 </div>
 
@@ -1095,6 +1148,25 @@ break;
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/05/02/gradle-tech/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="AS">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-02T14:26:06.000Z">2020-05-02</time></div>
+                    <a href="/2020/05/02/gradle-tech/" class="has-link-black-ter is-size-6">AS</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1172,25 +1244,6 @@ break;
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/07/28/cmake2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&amp;quality=100&amp;size=b4000_4000&amp;sec=1532771768&amp;di=cbb497808b9fe7056f1c1b99899179ab&amp;src=http://imgsrc.baidu.com/forum/w=580/sign=c4db4b7db23533faf5b6932698d3fdca/625641d12f2eb9384653b881d6628535e5dd6f3d.jpg" alt="从零开始使用Cmake进行jni编程教程(二)：打包so和jar包">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-07-28T06:23:47.000Z">2018-07-28</time></div>
-                    <a href="/2018/07/28/cmake2/" class="has-link-black-ter is-size-6">从零开始使用Cmake进行jni编程教程(二)：打包so和jar包</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/代码/">代码</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1202,6 +1255,17 @@ break;
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/12/">
@@ -1314,6 +1378,13 @@ break;
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/gradle/">
+                        <span class="tag">gradle</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/jar包/">
                         <span class="tag">jar包</span>
                         <span class="tag is-grey">1</span>
@@ -1344,6 +1415,13 @@ break;
                 <div class="control">
                     <a class="tags has-addons" href="/tags/布局/">
                         <span class="tag">布局</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/开发技巧/">
+                        <span class="tag">开发技巧</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1380,6 +1458,25 @@ break;
         
         <article class="media">
             
+            <a href="/2020/05/02/gradle-tech/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="AS">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-02T14:26:06.000Z">2020-05-02</time></div>
+                    <a href="/2020/05/02/gradle-tech/" class="has-link-black-ter is-size-6">AS</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/12/29/private/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="手机北斗APP隐私声明">
@@ -1454,25 +1551,6 @@ break;
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/07/28/cmake2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&amp;quality=100&amp;size=b4000_4000&amp;sec=1532771768&amp;di=cbb497808b9fe7056f1c1b99899179ab&amp;src=http://imgsrc.baidu.com/forum/w=580/sign=c4db4b7db23533faf5b6932698d3fdca/625641d12f2eb9384653b881d6628535e5dd6f3d.jpg" alt="从零开始使用Cmake进行jni编程教程(二)：打包so和jar包">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-07-28T06:23:47.000Z">2018-07-28</time></div>
-                    <a href="/2018/07/28/cmake2/" class="has-link-black-ter is-size-6">从零开始使用Cmake进行jni编程教程(二)：打包so和jar包</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/代码/">代码</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1484,6 +1562,17 @@ break;
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/12/">
@@ -1596,6 +1685,13 @@ break;
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/gradle/">
+                        <span class="tag">gradle</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/jar包/">
                         <span class="tag">jar包</span>
                         <span class="tag is-grey">1</span>
@@ -1626,6 +1722,13 @@ break;
                 <div class="control">
                     <a class="tags has-addons" href="/tags/布局/">
                         <span class="tag">布局</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/开发技巧/">
+                        <span class="tag">开发技巧</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
