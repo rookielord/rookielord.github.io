@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="定义一个功能更加强大的RelativeLayout，谷歌官网推荐 功能 约束  MotionLayout 是ConstraintLayout的子类 在单独的xml文件中设置约束条件 直接在两个ConstrainSet之间进行动画过度 过度效果一样 动画定制     作用 可折叠的header 状态反馈 过度效果 幻灯片？   使用的类 MotionScence  具体使用以下说明的都是demo中的">
+    <meta name="description" content="定义一个功能更加强大的RelativeLayout，谷歌官网推荐 功能 约束  MotionLayout 是ConstraintLayout的子类 在单独的xml文件中设置约束条件 直接在两个ConstrainSet之间进行动画过度 过度效果一样 动画定制     作用 可折叠的header 状态反馈 过度效果 幻灯片？   1.布局高度使用match_parent时，填充整个屏幕若采用以下布局1">
 <meta name="keywords" content="布局">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ConstrantLayout布局相关">
 <meta property="og:url" content="https://rookielord.github.io/2019/09/28/ConstrantLayout/index.html">
 <meta property="og:site_name" content="小小代码网">
-<meta property="og:description" content="定义一个功能更加强大的RelativeLayout，谷歌官网推荐 功能 约束  MotionLayout 是ConstraintLayout的子类 在单独的xml文件中设置约束条件 直接在两个ConstrainSet之间进行动画过度 过度效果一样 动画定制     作用 可折叠的header 状态反馈 过度效果 幻灯片？   使用的类 MotionScence  具体使用以下说明的都是demo中的">
+<meta property="og:description" content="定义一个功能更加强大的RelativeLayout，谷歌官网推荐 功能 约束  MotionLayout 是ConstraintLayout的子类 在单独的xml文件中设置约束条件 直接在两个ConstrainSet之间进行动画过度 过度效果一样 动画定制     作用 可折叠的header 状态反馈 过度效果 幻灯片？   1.布局高度使用match_parent时，填充整个屏幕若采用以下布局1">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://rookielord.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-10-07T10:45:19.427Z">
+<meta property="og:updated_time" content="2020-05-04T07:29:18.806Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ConstrantLayout布局相关">
-<meta name="twitter:description" content="定义一个功能更加强大的RelativeLayout，谷歌官网推荐 功能 约束  MotionLayout 是ConstraintLayout的子类 在单独的xml文件中设置约束条件 直接在两个ConstrainSet之间进行动画过度 过度效果一样 动画定制     作用 可折叠的header 状态反馈 过度效果 幻灯片？   使用的类 MotionScence  具体使用以下说明的都是demo中的">
+<meta name="twitter:description" content="定义一个功能更加强大的RelativeLayout，谷歌官网推荐 功能 约束  MotionLayout 是ConstraintLayout的子类 在单独的xml文件中设置约束条件 直接在两个ConstrainSet之间进行动画过度 过度效果一样 动画定制     作用 可折叠的header 状态反馈 过度效果 幻灯片？   1.布局高度使用match_parent时，填充整个屏幕若采用以下布局1">
 <meta name="twitter:image" content="https://rookielord.github.io/images/og_image.png">
 
 
@@ -155,7 +155,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    1 分钟 读完 (大约 139 个字)
+                    2 分钟 读完 (大约 236 个字)
                 </span>
                 
                 
@@ -189,15 +189,15 @@ var _hmt = _hmt || [];
 <li>幻灯片？</li>
 </ol>
 <hr>
-<h2 id="使用的类"><a href="#使用的类" class="headerlink" title="使用的类"></a>使用的类</h2><ul>
-<li>MotionScence</li>
-</ul>
-<h2 id="具体使用"><a href="#具体使用" class="headerlink" title="具体使用"></a>具体使用</h2><p>以下说明的都是demo中的内容</p>
-<ul>
-<li>基础的布局：<motionlayout>包裹的内容：space_layout.xml</motionlayout></li>
-<li>过度动画：<motationscene>包裹的内容：space_scence.xml</motationscene></li>
-<li>Start to End</li>
-</ul>
+<h2 id="1-布局高度使用match-parent时，填充整个屏幕"><a href="#1-布局高度使用match-parent时，填充整个屏幕" class="headerlink" title="1.布局高度使用match_parent时，填充整个屏幕"></a>1.布局高度使用match_parent时，填充整个屏幕</h2><p>若采用以下布局<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id=&quot;@+id/btn_download&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:text=&quot;下载&quot;</span><br><span class="line">        app:layout_constraintLeft_toLeftOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintRight_toRightOf=&quot;parent&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;androidx.recyclerview.widget.RecyclerView</span><br><span class="line">        android:id=&quot;@+id/rv_file_list&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;match_parent&quot;</span><br><span class="line">        app:layout_constraintRight_toRightOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintLeft_toLeftOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintTop_toBottomOf=&quot;@id/btn_download&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</span><br></pre></td></tr></table></figure></p>
+<p><code>recycleView</code>会占据整个屏幕，而不会受到<code>Button</code>的约束，但是一旦recycleView的高度使用<code>android:layout_height=&quot;wrap_content&quot;</code>则不会出现问题，经过查阅官方文件。</p>
+<blockquote>
+<p>Important: MATCH_PARENT is not supported for widgets contained in a ConstraintLayout, though similar behavior can be defined by using MATCH_CONSTRAINT with the corresponding left/right or top/bottom constraints being set to “parent”.</p>
+</blockquote>
+<p>即</p>
+<ol>
+<li><code>ConstraintLayout</code>不支持<code>match_parent</code>属性，要使用<code>match_constraint</code>代替，即将设置为<code>0dp</code>就可以实现<code>recycleView</code>在<code>Button</code>下的约束了</li>
+</ol>
 
         </div>
         
@@ -284,7 +284,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        8
+                        10
                     </p>
                 </div>
             </div>
@@ -454,6 +454,44 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2020/05/31/dart1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Dart语言整理（一）">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-31T10:46:23.000Z">2020-05-31</time></div>
+                    <a href="/2020/05/31/dart1/" class="has-link-black-ter is-size-6">Dart语言整理（一）</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/05/29/c_language/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-28T16:24:02.939Z">2020-05-29</time></div>
+                    <a href="/2020/05/29/c_language/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/05/02/gradle-tech/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="AS使用Gradle技巧">
@@ -509,44 +547,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/09/01/cmake3/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="http://wx4.sinaimg.cn/orj360/78f2cc43ly1fudduyb0iej20af0e7jva.jpg" alt="从零开始使用Cmake进行jni编程教程(三)：jni调用java的方法">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-09-01T04:43:47.000Z">2018-09-01</time></div>
-                    <a href="/2018/09/01/cmake3/" class="has-link-black-ter is-size-6">从零开始使用Cmake进行jni编程教程(三)：jni调用java的方法</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/代码/">代码</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2018/07/28/cmake2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&amp;quality=100&amp;size=b4000_4000&amp;sec=1532771768&amp;di=cbb497808b9fe7056f1c1b99899179ab&amp;src=http://imgsrc.baidu.com/forum/w=580/sign=c4db4b7db23533faf5b6932698d3fdca/625641d12f2eb9384653b881d6628535e5dd6f3d.jpg" alt="从零开始使用Cmake进行jni编程教程(二)：打包so和jar包">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-07-28T06:23:47.000Z">2018-07-28</time></div>
-                    <a href="/2018/07/28/cmake2/" class="has-link-black-ter is-size-6">从零开始使用Cmake进行jni编程教程(二)：打包so和jar包</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/代码/">代码</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -565,7 +565,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">五月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -750,6 +750,44 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2020/05/31/dart1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Dart语言整理（一）">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-31T10:46:23.000Z">2020-05-31</time></div>
+                    <a href="/2020/05/31/dart1/" class="has-link-black-ter is-size-6">Dart语言整理（一）</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/05/29/c_language/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-28T16:24:02.939Z">2020-05-29</time></div>
+                    <a href="/2020/05/29/c_language/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/05/02/gradle-tech/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="AS使用Gradle技巧">
@@ -805,44 +843,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/09/01/cmake3/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="http://wx4.sinaimg.cn/orj360/78f2cc43ly1fudduyb0iej20af0e7jva.jpg" alt="从零开始使用Cmake进行jni编程教程(三)：jni调用java的方法">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-09-01T04:43:47.000Z">2018-09-01</time></div>
-                    <a href="/2018/09/01/cmake3/" class="has-link-black-ter is-size-6">从零开始使用Cmake进行jni编程教程(三)：jni调用java的方法</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/代码/">代码</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2018/07/28/cmake2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&amp;quality=100&amp;size=b4000_4000&amp;sec=1532771768&amp;di=cbb497808b9fe7056f1c1b99899179ab&amp;src=http://imgsrc.baidu.com/forum/w=580/sign=c4db4b7db23533faf5b6932698d3fdca/625641d12f2eb9384653b881d6628535e5dd6f3d.jpg" alt="从零开始使用Cmake进行jni编程教程(二)：打包so和jar包">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-07-28T06:23:47.000Z">2018-07-28</time></div>
-                    <a href="/2018/07/28/cmake2/" class="has-link-black-ter is-size-6">从零开始使用Cmake进行jni编程教程(二)：打包so和jar包</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/代码/">代码</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -861,7 +861,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">五月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
