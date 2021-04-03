@@ -190,7 +190,7 @@ var _hmt = _hmt || [];
 <h1 id="步骤一：引用相关的POI库"><a href="#步骤一：引用相关的POI库" class="headerlink" title="步骤一：引用相关的POI库"></a>步骤一：引用相关的POI库</h1><p>可以前去apache的官网上下载最新版本的poi的jar包，但据说最新的POI不稳定，本人目前使用的如下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">implementation &apos;org.apache.poi:poi-ooxml:3.14&apos;</span><br><span class="line">implementation &apos;org.apache.poi:poi-excelant:3.14&apos;</span><br><span class="line">implementation &apos;org.apache.poi:poi-examples:3.14&apos;</span><br><span class="line">implementation &apos;org.apache.xmlbeans:xmlbeans:2.6.0&apos;</span><br></pre></td></tr></table></figure>
 <p><strong><font color="red">注意</font></strong>，该方法方法引用的库,暂时无法解决冲突问题，即使添加了exclude也依旧会提示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Duplicate class org.apache.xmlbeans.xml.stream.Location found in modules jetified-xmlbeans-2.6.0 </span><br><span class="line">(org.apache.xmlbeans:xmlbeans:2.6.0) and jetified-xmlbeans-2.6.0 </span><br><span class="line">(org.apache.xmlbeans:xmlbeans:2.6.0)</span><br><span class="line">~</span><br><span class="line">Go to the documentation to learn how to Fix dependency resolution errors.</span><br></pre></td></tr></table></figure></p>
-<p><img src="./word-poi/2021-04-03_175056.png" alt="图片"></p>
+<p><img src="./2021-04-03_175056.png" alt="图片"></p>
 <p>目前采用直接加载jar包的方式，引用库加载文件如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">implementation files(&apos;libs/poi-3.8-20120326.jar&apos;)</span><br><span class="line">implementation files(&apos;libs/poi-ooxml-3.8-20120326.jar&apos;)</span><br><span class="line">implementation files(&apos;libs/poi-ooxml-schemas-3.8-20120326.jar&apos;)</span><br><span class="line">implementation files(&apos;libs/xmlbeans-2.3.0.jar&apos;)</span><br><span class="line">implementation files(&apos;libs/commons-logging-1.1.jar&apos;)</span><br><span class="line">implementation files(&apos;libs/dom4j-1.6.1.jar&apos;)</span><br><span class="line">implementation files(&apos;libs/stax-api-1.0.1.jar&apos;)</span><br></pre></td></tr></table></figure>
 <p>这样的加载下能够保证正常加载docx文件。<a href="https://pan.baidu.com/s/1dOfHyhFE6dbMi0WaR7nDsA" title="下载链接" target="_blank" rel="noopener">下载链接</a>，密码<code>ilb2</code></p>
@@ -217,7 +217,7 @@ var _hmt = _hmt || [];
 </tbody>
 </table>
 <p>由于<code>doc</code>是2003年的word版本，此处暂时略过。主要使用<code>docx</code>进行作业</p>
-<h1 id="步骤三：文件操作"><a href="#步骤三：文件操作" class="headerlink" title="步骤三：文件操作"></a>步骤三：文件操作</h1><center><br><img src="./word-poi/2021-04-03_214714.png" alt=""><br><u>文章类结构</u><br></center>
+<h1 id="步骤三：文件操作"><a href="#步骤三：文件操作" class="headerlink" title="步骤三：文件操作"></a>步骤三：文件操作</h1><center><br><img src="./2021-04-03_214714.png" alt=""><br><u>文章类结构</u><br></center>
 
 <h2 id="获取主要信息"><a href="#获取主要信息" class="headerlink" title="获取主要信息"></a>获取主要信息</h2><h3 id="读取字段信息"><a href="#读取字段信息" class="headerlink" title="读取字段信息"></a>读取字段信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 段落，一般只文字内容,图片表格等其他字符，会作为空字符</span><br><span class="line">List&lt;XWPFParagraph&gt; paragraphs = doc.getParagraphs();</span><br><span class="line">// 表格，整文档中的所有表格</span><br><span class="line">List&lt;XWPFTable&gt; tables = doc.getTables();</span><br><span class="line">// 图片，获取的都是byte[]</span><br><span class="line">List&lt;XWPFPictureData&gt; allPictures = doc.getAllPictures();</span><br><span class="line">// 页眉，只能获取不同内容的页眉</span><br><span class="line">List&lt;XWPFHeader&gt; headerList = doc.getHeaderList();</span><br><span class="line">// 页脚，注意自动生成的编号不会被获取到，只能获取不同类型的页脚</span><br><span class="line">List&lt;XWPFFooter&gt; footerList = doc.getFooterList();</span><br></pre></td></tr></table></figure>
 <h3 id="编辑文档内容（覆盖和添加）"><a href="#编辑文档内容（覆盖和添加）" class="headerlink" title="编辑文档内容（覆盖和添加）"></a>编辑文档内容（覆盖和添加）</h3><blockquote>
@@ -263,6 +263,7 @@ var _hmt = _hmt || [];
 <ol>
 <li>该方法目前由于poi包版本的原因，存在添加图片后无法打开word问题。需要更新新的包才行，只不过方法是对的</li>
 </ol>
+<center><br><img src="./2021-04-03_234422.png" alt=""><br><u>导入图片打开提示错误</u></center>
 
     </div>
     
