@@ -19,16 +19,12 @@
     <link rel="dns-prefetch" href="https://rookielord.github.io">
     <!--SEO-->
 
-<meta name="keywords" content="cmake,jni">
+<meta name="keywords" content="github">
 
 
-<meta name="description" content="准备内容
-一台能够联网的主机
-AS2.2以上的AS（博主使用的是AS3.1)
-NDK编译包（博主使用的是android-ndk-r14b）
+<meta name="description" content="github上不去，大家都知道这是咋回事，本博主也是查看了网上各位大神的方法，按照操作后可以能够访问，故在此分享给大家。
 
-以下为AS和NDK包的下载地址
-AS:https:/...">
+无法链接原因：DNS污染，幸好不是背墙。程序员捣鼓一下还能上，这样应该...">
 
 
 <meta name="robots" content="all">
@@ -39,7 +35,7 @@ AS:https:/...">
 
 <title>
     
-    从零开始使用Cmake进行jni编程教程(一)：搭建环境 |
+    github登录异常 |
     
     小小代码网
 </title>
@@ -146,16 +142,16 @@ var _hmt = _hmt || [];
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="从零开始使用Cmake进行jni编程教程(一)：搭建环境">
+        <h1 id="github登录异常">
             
-            从零开始使用Cmake进行jni编程教程(一)：搭建环境
+            github登录异常
             
         </h1>
         <div class="post-meta">
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a class="category-link" href="/categories/代码/">代码</a>
+        <a class="category-link" href="/categories/技巧/">技巧</a>
     </span>
     
     
@@ -163,7 +159,7 @@ var _hmt = _hmt || [];
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/cmake/">cmake</a> <a class="tag-link" href="/tags/jni/">jni</a>
+            <a class="tag-link" href="/tags/github/">github</a>
             
         </span>
     </span>
@@ -173,98 +169,34 @@ var _hmt = _hmt || [];
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2018/07/26</span>
+            2021/04/09</span>
     </span>
     
     
 </div>
         
         
-        <p class="fa fa-exclamation-triangle warning">
-            本文于<strong>
-                988</strong>
-            天之前发表，文中内容可能已经过时。
-        </p>
-        
     </div>
     
     <div class="post-body post-content">
-        <h1 id="准备内容"><a href="#准备内容" class="headerlink" title="准备内容"></a>准备内容</h1><ol>
-<li>一台能够联网的主机</li>
-<li>AS2.2以上的AS（博主使用的是AS3.1)</li>
-<li>NDK编译包（博主使用的是android-ndk-r14b）</li>
-</ol>
-<p>以下为AS和NDK包的下载地址</p>
-<p>AS:<a href="https://developer.android.google.cn/studio/" target="_blank" rel="noopener">https://developer.android.google.cn/studio/</a></p>
-<p>NDK:<br><a href="https://developer.android.google.cn/ndk/downloads/" title="NDK" target="_blank" rel="noopener">https://developer.android.google.cn/ndk/downloads/</a></p>
-<h1 id="前期工作"><a href="#前期工作" class="headerlink" title="前期工作"></a>前期工作</h1><ol>
-<li>解压下载完成的NDK包，并放在根目录下，位置可以不在C盘，但路径中不允许出现空格或中文字符</li>
-<li>打开AS，在configure中选取，Project defauts中选取Project Structure设置NDK路径，这样新建NDK项目后就不用每次重新设置。</li>
-</ol>
+        <p><code>github</code>上不去，大家都知道这是咋回事，本博主也是查看了网上各位大神的方法，按照操作后可以能够访问，故在此分享给大家。</p>
 <blockquote>
-<p>若无法设置，则可以到新建AS安装目录下直接设置NDK路径<br>在C:\Program Files\Android\Android Studio\plugins\android\lib\templates\gradle-projects\NewAndroidProject\root\local.properties.ftl中添加末尾一行指定NDK编译路径<br>ndk.dir=C\:\android-ndk-r14b</p>
+<p>无法链接原因：<strong>DNS污染</strong>，幸好不是背墙。程序员捣鼓一下还能上，这样应该主要是为了过滤小白。</p>
 </blockquote>
-<p><img src="https://i.imgur.com/3Avh6di.png" alt=""></p>
-<ol start="3">
-<li>设置快速jni编译命令<br>点击File-Setting-Tool在External中按照以下方式编译javah,命令，确保能够通过该命令快速生成java对应的.h文件<strong>（注意：此处JDK的路径需要设置为java的jdk路径，使用AS自带的路径很可能无法编译）</strong></li>
+<p>具体步骤如下：</p>
+<ol>
+<li>登录<code>ping</code>检测网站，查看<code>github</code>被解析的哪个<code>ip</code>能够被访问</li>
+<li>修改本机的<code>host</code>,将对应的<code>DNS</code>解析添加进去</li>
+<li>通过命令行刷新<code>dns</code></li>
 </ol>
-<h2 id="h文件快速生成命令"><a href="#h文件快速生成命令" class="headerlink" title=".h文件快速生成命令"></a>.h文件快速生成命令</h2><p><img src="https://i.imgur.com/qzeLJD9.png" alt=""></p>
-<hr>
-<h2 id="NDK-生成so命令（该命令可以不用）"><a href="#NDK-生成so命令（该命令可以不用）" class="headerlink" title="NDK 生成so命令（该命令可以不用）"></a>NDK 生成so命令（该命令可以不用）</h2><p><img src="https://i.imgur.com/Ovxy8Dt.png" alt="ndk build，可不需要"></p>
-<hr>
-<h2 id="NDK清空命令（该命令可以不用）"><a href="#NDK清空命令（该命令可以不用）" class="headerlink" title="NDK清空命令（该命令可以不用）"></a>NDK清空命令（该命令可以不用）</h2><p><img src="https://i.imgur.com/bwGYa0T.png" alt="ndk clean，可不需要"></p>
-<h1 id="测试NDK是否可以编译"><a href="#测试NDK是否可以编译" class="headerlink" title="测试NDK是否可以编译"></a>测试NDK是否可以编译</h1><ol>
-<li>新建一个Android Project jni项目，然后把这三个<br><img src="https://i.imgur.com/n5K54cm.png" alt=""></li>
-<li>选中C++版本11或14，这里我选择了11，下面两个可以不勾选，一般jni编译不会用到</li>
-</ol>
-<p><img src="https://i.imgur.com/6t3S8Kv.png" alt=""></p>
-<ol start="3">
-<li>编译完成如果没有安装Cmake包则会提示用户自己去下载，安装完成后，即可开始jni的编程</li>
-</ol>
-<ul>
-<li>Activity界面</li>
-</ul>
-<pre><code>public class MainActivity extends AppCompatActivity {
-// 使用该静态代码块指定加载的jni即so包
-static {
-System.loadLibrary(&quot;native-lib&quot;);
-}
+<h2 id="1-登录ping检测网站"><a href="#1-登录ping检测网站" class="headerlink" title="1.登录ping检测网站"></a>1.登录ping检测网站</h2><p>登录<a href="https://github.com.ipaddress.com/" target="_blank" rel="noopener">github检测网站</a>，通过该网站查看对应的<code>github</code>网站被解析正常的ip，将红色框选部分的<code>IP Address</code>给复制下来备用<br><img src="./2021-04-09_225523.png" alt="查看信息"></p>
+<center><br>登录图片<br></center>
 
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-super.onCreate(savedInstanceState);
-setContentView(R.layout.activity_main);
-
-// Example of a call to a native method
-TextView tv = (TextView) findViewById(R.id.sample_text);
-tv.setText(stringFromJNI());
-}
-
-
-// jni调用的方法，该方法需要有对应的cpp文件
-public native String stringFromJNI();
-}
-</code></pre><ul>
-<li>cpp文件</li>
-</ul>
-<pre><code>#include &lt;jni.h&gt;
-#include &lt;string&gt;
-extern &quot;C&quot; JNIEXPORT jstring
-JNICALL
-Java_com_minicoder_cmakedmo_MainActivity_stringFromJNI(
-JNIEnv *env,
-jobject /* this */) {
-std::string hello = &quot;Hello from C++&quot;;
-return env-&gt;NewStringUTF(hello.c_str());
-}
-</code></pre><ul>
-<li>CMakeLists.txt(该文件自动生成，注意其中的几个变量设置)</li>
-</ul>
-<p><img src="https://i.imgur.com/PBp9auj.png" alt=""></p>
-<ol start="4">
-<li>只要可以在确定APP可以正常运行则则表示搭建jni编译环境成功</li>
-</ol>
-<p><img src="https://i.imgur.com/5IdG86b.png" alt=""></p>
+<h2 id="2-将DNS解析添加到host文件中"><a href="#2-将DNS解析添加到host文件中" class="headerlink" title="2.将DNS解析添加到host文件中"></a>2.将DNS解析添加到host文件中</h2><p>host的目录为<code>C:\Windows\System32\drivers\etc</code>下的<code>host</code>文件，将其用文档编译器打开（<strong>注意：需要管理员模式打开，否则编辑后无法保存</strong>)，将之前的ip添加在最后面。<code>ip</code>和<code>github.com</code>需要注意添加<strong>空格</strong><br><img src="./2021-04-09_230637.png" alt="添加dns解析"></p>
+<h2 id="3-通过命令行刷新dns"><a href="#3-通过命令行刷新dns" class="headerlink" title="3.通过命令行刷新dns"></a>3.通过命令行刷新<code>dns</code></h2><p><code>win</code>+<code>R</code>，输入<code>cmd</code>回车，随后输入命令<code>ipconfig /flushdns</code></p>
+<p><img src="./2021-04-09_231120.png" alt="刷新DNS"></p>
+<p>完成以上操作就可以访问Github了，以下是登录成功的截图</p>
+<p><img src="./2021-04-09_231533.png" alt="登录成功"></p>
 
     </div>
     
@@ -283,17 +215,11 @@ return env-&gt;NewStringUTF(hello.c_str());
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2018/07/28/cmake2/" class="pre-post btn btn-default" title="从零开始使用Cmake进行jni编程教程(二)：打包so和jar包">
-        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-        <span class="hidden-xs">
-            从零开始使用Cmake进行jni编程教程(二)：打包so和jar包</span>
-    </a>
     
-    
-    <a href="/2018/07/22/intDef/" class="next-post btn btn-default" title="使用注解机制代替枚举">
+    <a href="/2021/04/06/kotlin/" class="next-post btn btn-default" title="kotlin如何创建匿名函数">
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            使用注解机制代替枚举</span><i class="fa fa-angle-right fa-fw"></i>
+            kotlin如何创建匿名函数</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -333,7 +259,7 @@ return env-&gt;NewStringUTF(hello.c_str());
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#准备内容"><span class="toc-text">准备内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#前期工作"><span class="toc-text">前期工作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#h文件快速生成命令"><span class="toc-text">.h文件快速生成命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NDK-生成so命令（该命令可以不用）"><span class="toc-text">NDK 生成so命令（该命令可以不用）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NDK清空命令（该命令可以不用）"><span class="toc-text">NDK清空命令（该命令可以不用）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#测试NDK是否可以编译"><span class="toc-text">测试NDK是否可以编译</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-登录ping检测网站"><span class="toc-text">1.登录ping检测网站</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-将DNS解析添加到host文件中"><span class="toc-text">2.将DNS解析添加到host文件中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-通过命令行刷新dns"><span class="toc-text">3.通过命令行刷新dns</span></a></li></ol>
         
     </div>
 </aside>
