@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,20 +19,20 @@
     <link rel="dns-prefetch" href="https://rookielord.github.io">
     <!--SEO-->
 
-<meta name="keywords" content="android,控件">
+<meta name="keywords" content="android,控件" />
 
 
 <meta name="description" content="Dialog相关学习
 1.如何在点击确定或取消按钮时，不取消弹窗
 使用场景:在弹窗输入参数后，需要对参数进行校验是否合法时。如果不规范则提示用户重新输入
 
-使用AlertDialog.Build...">
+使用AlertDialog.Build..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -49,9 +49,11 @@
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 
 <script>
@@ -68,7 +70,7 @@ var _hmt = _hmt || [];
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 6.0.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -78,10 +80,11 @@ var _hmt = _hmt || [];
 <div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
 <![endif]-->
 <body>
-    <header class="main-header" style="background-image:url(
-    http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="LJJ">
+        <a class="header-avatar" href="/" title='LJJ'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -153,7 +156,7 @@ var _hmt = _hmt || [];
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a class="category-link" href="/categories/移动端/">移动端</a>
+        <a class="category-link" href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a>
     </span>
     
     
@@ -161,7 +164,7 @@ var _hmt = _hmt || [];
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/android/">android</a> <a class="tag-link" href="/tags/控件/">控件</a>
+            <a class="tag-none-link" href="/tags/android/" rel="tag">android</a> <a class="tag-none-link" href="/tags/%E6%8E%A7%E4%BB%B6/" rel="tag">控件</a>
             
         </span>
     </span>
@@ -178,6 +181,12 @@ var _hmt = _hmt || [];
 </div>
         
         
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                324</strong>
+            天之前发表，文中内容可能已经过时。
+        </p>
+        
     </div>
     
     <div class="post-body post-content">
@@ -186,8 +195,10 @@ var _hmt = _hmt || [];
 <p>使用场景:在弹窗输入参数后，需要对参数进行校验是否合法时。如果不规范则提示用户重新输入</p>
 </blockquote>
 <p>使用<code>AlertDialog.Builder</code>创建的Dialog，在调用<code>setPositiveButton</code>相关的按钮时，会自动隐藏弹窗。若不想隐藏则需要再获取一次<code>Button</code>设置监听事件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class CustomDialog extends DialogFragment &#123;</span><br><span class="line">    private EditText mUserName;</span><br><span class="line">    private EditText mPassword;</span><br><span class="line">    </span><br><span class="line">    @NonNull</span><br><span class="line">    @Override</span><br><span class="line">    public Dialog onCreateDialog(Bundle savedInstanceState) &#123;</span><br><span class="line">        LayoutInflater inflater = requireActivity().getLayoutInflater();</span><br><span class="line">        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());</span><br><span class="line">        View view = inflater.inflate(R.layout.custom_dialog, null);</span><br><span class="line">        mUserName = view.findViewById(R.id.username);</span><br><span class="line">        mPassword = view.findViewById(R.id.password);</span><br><span class="line">        builder.setView(view).setPositiveButton(&quot;确定&quot;, null).setNegativeButton(&quot;取消&quot;, null);</span><br><span class="line">        AlertDialog dialog = builder.create();</span><br><span class="line">		// 必须调用show方法，否则下面获取到的button为null</span><br><span class="line">        dialog.show();</span><br><span class="line">        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -&gt; &#123;</span><br><span class="line">            if (TextUtils.isEmpty(mUserName.getText().toString())) &#123;</span><br><span class="line">                Toast.makeText(getActivity(), &quot;用户名为空&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">                return;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                dialog.dismiss();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        return dialog;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="2-DialogFragment在显示时提示Theme错误"><a href="#2-DialogFragment在显示时提示Theme错误" class="headerlink" title="2.DialogFragment在显示时提示Theme错误"></a>2.<code>DialogFragment</code>在显示时提示Theme错误</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">java.lang.IllegalStateException: You need to use a Theme.AppCompat theme (or descendant) with this activity.</span><br><span class="line">      at androidx.appcompat.app.AppCompatDelegateImpl.createSubDecor(AppCompatDelegateImpl.java:696)</span><br><span class="line">      at androidx.appcompat.app.AppCompatDelegateImpl.ensureSubDecor(AppCompatDelegateImpl.java:659)</span><br><span class="line">      at androidx.appcompat.app.AppCompatDelegateImpl.setContentView(AppCompatDelegateImpl.java:552)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class CustomDialog extends DialogFragment &#123;</span><br><span class="line">    private EditText mUserName;</span><br><span class="line">    private EditText mPassword;</span><br><span class="line">    </span><br><span class="line">    @NonNull</span><br><span class="line">    @Override</span><br><span class="line">    public Dialog onCreateDialog(Bundle savedInstanceState) &#123;</span><br><span class="line">        LayoutInflater inflater = requireActivity().getLayoutInflater();</span><br><span class="line">        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());</span><br><span class="line">        View view = inflater.inflate(R.layout.custom_dialog, null);</span><br><span class="line">        mUserName = view.findViewById(R.id.username);</span><br><span class="line">        mPassword = view.findViewById(R.id.password);</span><br><span class="line">        builder.setView(view).setPositiveButton(&quot;确定&quot;, null).setNegativeButton(&quot;取消&quot;, null);</span><br><span class="line">        AlertDialog dialog = builder.create();</span><br><span class="line">		// 必须调用show方法，否则下面获取到的button为null</span><br><span class="line">        dialog.show();</span><br><span class="line">        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -&gt; &#123;</span><br><span class="line">            if (TextUtils.isEmpty(mUserName.getText().toString())) &#123;</span><br><span class="line">                Toast.makeText(getActivity(), &quot;用户名为空&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">                return;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                dialog.dismiss();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        return dialog;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-DialogFragment在显示时提示Theme错误"><a href="#2-DialogFragment在显示时提示Theme错误" class="headerlink" title="2.DialogFragment在显示时提示Theme错误"></a>2.<code>DialogFragment</code>在显示时提示Theme错误</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">java.lang.IllegalStateException: You need to use a Theme.AppCompat theme (or descendant) with this activity.</span><br><span class="line">      at androidx.appcompat.app.AppCompatDelegateImpl.createSubDecor(AppCompatDelegateImpl.java:696)</span><br><span class="line">      at androidx.appcompat.app.AppCompatDelegateImpl.ensureSubDecor(AppCompatDelegateImpl.java:659)</span><br><span class="line">      at androidx.appcompat.app.AppCompatDelegateImpl.setContentView(AppCompatDelegateImpl.java:552)</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>该问题属于没有给<code>DialogFragment</code>弹窗依赖的Activity没有使用AppCompat的Theme.</p>
 </blockquote>
@@ -197,7 +208,7 @@ var _hmt = _hmt || [];
 <li>使用的Activity直接继承Activity而不用继承AppCompatActivity</li>
 <li>在<code>AndroidManifest</code>对应的Activity的主题改为使用AppCompat的主题</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.Light.DarkActionBar&quot;&gt;</span><br><span class="line">    &lt;!-- Customize your theme here. --&gt;</span><br><span class="line">    &lt;item name=&quot;colorPrimary&quot;&gt;@color/colorPrimary&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;colorPrimaryDark&quot;&gt;@color/colorPrimaryDark&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;colorAccent&quot;&gt;@color/colorAccent&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.Light.DarkActionBar&quot;&gt;</span><br><span class="line">    &lt;!-- Customize your theme here. --&gt;</span><br><span class="line">    &lt;item name=&quot;colorPrimary&quot;&gt;@color/colorPrimary&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;colorPrimaryDark&quot;&gt;@color/colorPrimaryDark&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;colorAccent&quot;&gt;@color/colorAccent&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 
     </div>
     
@@ -216,14 +227,14 @@ var _hmt = _hmt || [];
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2021/03/30/word-poi/" class="pre-post btn btn-default" title="使用POI进行Word操作（一）">
+    <a href="/2021/03/30/word-poi/" class="pre-post btn btn-default" title='使用POI进行Word操作（一）'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             使用POI进行Word操作（一）</span>
     </a>
     
     
-    <a href="/2020/05/31/dart1/" class="next-post btn btn-default" title="Dart语言整理（一）">
+    <a href="/2020/05/31/dart1/" class="next-post btn btn-default" title='Dart语言整理（一）'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             Dart语言整理（一）</span><i class="fa fa-angle-right fa-fw"></i>
@@ -266,7 +277,7 @@ var _hmt = _hmt || [];
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Dialog相关学习"><span class="toc-text">Dialog相关学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-如何在点击确定或取消按钮时，不取消弹窗"><span class="toc-text">1.如何在点击确定或取消按钮时，不取消弹窗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-DialogFragment在显示时提示Theme错误"><span class="toc-text">2.DialogFragment在显示时提示Theme错误</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Dialog%E7%9B%B8%E5%85%B3%E5%AD%A6%E4%B9%A0"><span class="toc-text">Dialog相关学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%A6%82%E4%BD%95%E5%9C%A8%E7%82%B9%E5%87%BB%E7%A1%AE%E5%AE%9A%E6%88%96%E5%8F%96%E6%B6%88%E6%8C%89%E9%92%AE%E6%97%B6%EF%BC%8C%E4%B8%8D%E5%8F%96%E6%B6%88%E5%BC%B9%E7%AA%97"><span class="toc-text">1.如何在点击确定或取消按钮时，不取消弹窗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-DialogFragment%E5%9C%A8%E6%98%BE%E7%A4%BA%E6%97%B6%E6%8F%90%E7%A4%BATheme%E9%94%99%E8%AF%AF"><span class="toc-text">2.DialogFragment在显示时提示Theme错误</span></a></li></ol></li></ol>
         
     </div>
 </aside>
@@ -309,6 +320,8 @@ var _hmt = _hmt || [];
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

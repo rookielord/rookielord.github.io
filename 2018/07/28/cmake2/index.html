@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,18 +19,18 @@
     <link rel="dns-prefetch" href="https://rookielord.github.io">
     <!--SEO-->
 
-<meta name="keywords" content="cmake,jni,so,jar包">
+<meta name="keywords" content="cmake,jni,so,jar包" />
 
 
 <meta name="description" content="前期准备
 确保之前的之前的内容能够正常运行，生成hellow world。如果不行，请点击从零开始使用Cmake进行jni编程教程(一)：搭建环境进行环境配置
-确定好jar包的目录结构和so的名...">
+确定好jar包的目录结构和so的名..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -47,9 +47,11 @@
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 
 <script>
@@ -66,7 +68,7 @@ var _hmt = _hmt || [];
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 6.0.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -76,10 +78,11 @@ var _hmt = _hmt || [];
 <div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
 <![endif]-->
 <body>
-    <header class="main-header" style="background-image:url(
-    http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="LJJ">
+        <a class="header-avatar" href="/" title='LJJ'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -151,7 +154,7 @@ var _hmt = _hmt || [];
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a class="category-link" href="/categories/代码/">代码</a>
+        <a class="category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
     </span>
     
     
@@ -159,7 +162,7 @@ var _hmt = _hmt || [];
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/cmake/">cmake</a> <a class="tag-link" href="/tags/jar包/">jar包</a> <a class="tag-link" href="/tags/jni/">jni</a> <a class="tag-link" href="/tags/so/">so</a>
+            <a class="tag-none-link" href="/tags/cmake/" rel="tag">cmake</a> <a class="tag-none-link" href="/tags/jar%E5%8C%85/" rel="tag">jar包</a> <a class="tag-none-link" href="/tags/jni/" rel="tag">jni</a> <a class="tag-none-link" href="/tags/so/" rel="tag">so</a>
             
         </span>
     </span>
@@ -178,7 +181,7 @@ var _hmt = _hmt || [];
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                1003</strong>
+                1298</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -186,7 +189,7 @@ var _hmt = _hmt || [];
     
     <div class="post-body post-content">
         <h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><ol>
-<li>确保之前的之前的内容能够正常运行，生成hellow world。如果不行，请点击<a href="http://www.rookielord.cn/2018/07/26/cmake/" title="搭建环境" target="_blank" rel="noopener">从零开始使用Cmake进行jni编程教程(一)：搭建环境</a>进行环境配置</li>
+<li>确保之前的之前的内容能够正常运行，生成hellow world。如果不行，请点击<a target="_blank" rel="noopener" href="http://www.rookielord.cn/2018/07/26/cmake/" title="搭建环境">从零开始使用Cmake进行jni编程教程(一)：搭建环境</a>进行环境配置</li>
 <li>确定好jar包的目录结构和so的名称，这两者主要作用有两点。<ol>
 <li>在生成so时以规定的名称生成</li>
 <li>在调用native方法时，可以正确找到正确的类</li>
@@ -195,49 +198,16 @@ var _hmt = _hmt || [];
 </li>
 <li>创建新的File-New-New Moudule,创建编译so和jar包的模块</li>
 </ol>
-<p><img src="https://i.imgur.com/OzU1zMi.png" alt=""></p>
-<p><img src="https://i.imgur.com/51BhSbQ.png" alt=""></p>
+<p><img src="https://i.imgur.com/OzU1zMi.png"></p>
+<p><img src="https://i.imgur.com/51BhSbQ.png"></p>
 <ol start="2">
 <li>配置新建Moudule的目录进行配置和build.gradle文件进行编辑：<ol>
 <li>去除多余的引用，并编写makejar命令</li>
 <li>将上一个步骤中app下的CMakeLists.txt文件拷贝过来</li>
 <li>并按照之前系统配置的jni默认目录的gradle文件，修改当前模块的gradle内容</li>
-<li>最后的当前项目的gradle配置文件内容为：<br><code>`</code><br>apply plugin: ‘com.android.library’</li>
+<li>最后的当前项目的gradle配置文件内容为：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: &#x27;com.android.library&#x27;</span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion 27</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        minSdkVersion 17</span><br><span class="line">        targetSdkVersion 27</span><br><span class="line">        versionCode 1</span><br><span class="line">        versionName &quot;1.0&quot;</span><br><span class="line">        externalNativeBuild &#123;</span><br><span class="line">            cmake &#123;</span><br><span class="line">                cppFlags &quot;-std=c++11&quot;</span><br><span class="line">                //指定编译的so平台，不指定则编译所有的so平台</span><br><span class="line">                abiFilters &quot;armeabi&quot;, &quot;x86&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            minifyEnabled false</span><br><span class="line">            proguardFiles getDefaultProguardFile(&#x27;proguard-android.txt&#x27;), &#x27;proguard-rules.pro&#x27;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    externalNativeBuild &#123;</span><br><span class="line">        cmake &#123;</span><br><span class="line">            path &quot;CMakeLists.txt&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    implementation fileTree(dir: &#x27;libs&#x27;, include: [&#x27;*.jar&#x27;])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 指定jar的原路径和命名</span><br><span class="line">def JarName = &quot;coder&quot;</span><br><span class="line">def JarTargetPath = &quot;build&quot;</span><br><span class="line">def JarSoureFilePath = file(&quot;build/intermediates/packaged-classes/release/classes.jar&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">task maekJar(type: Jar) &#123;</span><br><span class="line">    from zipTree(JarSoureFilePath)</span><br><span class="line">    baseName = JarName</span><br><span class="line">    destinationDir = file(JarTargetPath)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ol>
 </li>
-</ol>
-<p>android {<br>    compileSdkVersion 27</p>
-<pre><code>defaultConfig {
-    minSdkVersion 17
-    targetSdkVersion 27
-    versionCode 1
-    versionName &quot;1.0&quot;
-    externalNativeBuild {
-        cmake {
-            cppFlags &quot;-std=c++11&quot;
-            //指定编译的so平台，不指定则编译所有的so平台
-            abiFilters &quot;armeabi&quot;, &quot;x86&quot;
-        }
-    }
-}
-
-buildTypes {
-    release {
-        minifyEnabled false
-        proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;
-    }
-}
-externalNativeBuild {
-    cmake {
-        path &quot;CMakeLists.txt&quot;
-    }
-}
-</code></pre><p>}</p>
-<p>dependencies {<br>    implementation fileTree(dir: ‘libs’, include: [‘*.jar’])<br>}</p>
-<p>// 指定jar的原路径和命名<br>def JarName = “coder”<br>def JarTargetPath = “build”<br>def JarSoureFilePath = file(“build/intermediates/packaged-classes/release/classes.jar”)</p>
-<p>task maekJar(type: Jar) {<br>    from zipTree(JarSoureFilePath)<br>    baseName = JarName<br>    destinationDir = file(JarTargetPath)<br>}</p>
-<p><code>`</code> </p>
-<ol start="3">
 <li>编写java的native方法，使用上一篇中设置external tools中的javah命令，生成java类对应的.h文件，复制.h文件重命名后缀为cpp,在header中引用之前的.h文件，并实现具体的内容</li>
 </ol>
 <p>cpp文件中就返回博主当前的网站吧</p>
@@ -247,22 +217,19 @@ externalNativeBuild {
 <ol start="4">
 <li>更新CMakeLists.txt中引用的cpp文件，和对应so的名称</li>
 </ol>
-<p><img src="https://i.imgur.com/PhVZUwY.png" alt=""></p>
+<p><img src="https://i.imgur.com/PhVZUwY.png"></p>
 <ol start="5">
 <li>更改编译模式，从debug改为release，确保class.jar文件能够在正确的路径下生成</li>
 </ol>
-<p><img src="https://i.imgur.com/AlHPaUW.png" alt="buildType方式选取"><br><img src="https://i.imgur.com/LeY6h2S.png" alt=""></p>
-<ol start="6">
-<li><p>点击build后就可以生成对应的so了<br><img src="https://i.imgur.com/BjuVutj.png" alt=""></p>
-</li>
-<li><p>jar包的生成需要点击使用makeJar命令，如果嫌麻烦也可以自己在build\intermediates\packaged-classes\release目录下，拷贝后重命名即可<br><img src="https://i.imgur.com/4ugVug3.gif" alt=""></p>
-</li>
+<p><img src="https://i.imgur.com/AlHPaUW.png" alt="buildType方式选取"><br><img src="https://i.imgur.com/LeY6h2S.png"><br>6. 点击build后就可以生成对应的so了<br><img src="https://i.imgur.com/BjuVutj.png"></p>
+<ol start="7">
+<li>jar包的生成需要点击使用makeJar命令，如果嫌麻烦也可以自己在build\intermediates\packaged-classes\release目录下，拷贝后重命名即可<br><img src="https://i.imgur.com/4ugVug3.gif"></li>
 </ol>
 <h1 id="使用so和jar包"><a href="#使用so和jar包" class="headerlink" title="使用so和jar包"></a>使用so和jar包</h1><ol>
 <li>新建项目</li>
 <li>把jar包考进lib中，并在gradle中添加引用</li>
 <li>在main目录下把新建jniLibs，把需要引用的平台添加进去</li>
-<li>运行项目<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><img src="https://i.imgur.com/cgpLuWw.png" alt=""><h2 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h2><img src="https://i.imgur.com/iAm8koQ.png" alt=""></li>
+<li>运行项目<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><img src="https://i.imgur.com/cgpLuWw.png"><h2 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h2><img src="https://i.imgur.com/iAm8koQ.png"></li>
 </ol>
 
     </div>
@@ -282,14 +249,14 @@ externalNativeBuild {
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2018/09/01/cmake3/" class="pre-post btn btn-default" title="从零开始使用Cmake进行jni编程教程(三)：jni调用java的方法">
+    <a href="/2018/09/01/cmake3/" class="pre-post btn btn-default" title='从零开始使用Cmake进行jni编程教程(三)：jni调用java的方法'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             从零开始使用Cmake进行jni编程教程(三)：jni调用java的方法</span>
     </a>
     
     
-    <a href="/2018/07/26/cmake/" class="next-post btn btn-default" title="从零开始使用Cmake进行jni编程教程(一)：搭建环境">
+    <a href="/2018/07/26/cmake/" class="next-post btn btn-default" title='从零开始使用Cmake进行jni编程教程(一)：搭建环境'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             从零开始使用Cmake进行jni编程教程(一)：搭建环境</span><i class="fa fa-angle-right fa-fw"></i>
@@ -332,7 +299,7 @@ externalNativeBuild {
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前期准备"><span class="toc-text">前期准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开始工作"><span class="toc-text">开始工作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用so和jar包"><span class="toc-text">使用so和jar包</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录结构"><span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行效果"><span class="toc-text">运行效果</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87"><span class="toc-text">前期准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E5%B7%A5%E4%BD%9C"><span class="toc-text">开始工作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8so%E5%92%8Cjar%E5%8C%85"><span class="toc-text">使用so和jar包</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C"><span class="toc-text">运行效果</span></a></li></ol></li></ol>
         
     </div>
 </aside>
@@ -375,6 +342,8 @@ externalNativeBuild {
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

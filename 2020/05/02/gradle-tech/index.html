@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,18 +19,18 @@
     <link rel="dns-prefetch" href="https://rookielord.github.io">
     <!--SEO-->
 
-<meta name="keywords" content="gradle,开发技巧">
+<meta name="keywords" content="gradle,开发技巧" />
 
 
 <meta name="description" content="新建项目加载下载aar包失败各位朋友们，由于AS是由Google公司基于intelij二次开发的开发工具。众所周知在国内下载国外的一些东西会被X掉。从而很多导致很多人员经常卡住，出现以下情况
 
-...">
+..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -47,9 +47,11 @@
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 
 <script>
@@ -66,7 +68,7 @@ var _hmt = _hmt || [];
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 6.0.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -76,10 +78,11 @@ var _hmt = _hmt || [];
 <div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
 <![endif]-->
 <body>
-    <header class="main-header" style="background-image:url(
-    http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="LJJ">
+        <a class="header-avatar" href="/" title='LJJ'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -159,7 +162,7 @@ var _hmt = _hmt || [];
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/gradle/">gradle</a> <a class="tag-link" href="/tags/开发技巧/">开发技巧</a>
+            <a class="tag-none-link" href="/tags/gradle/" rel="tag">gradle</a> <a class="tag-none-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a>
             
         </span>
     </span>
@@ -178,7 +181,7 @@ var _hmt = _hmt || [];
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                358</strong>
+                653</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -189,7 +192,8 @@ var _hmt = _hmt || [];
 <p><img src="https://www.minicoder.cn/gallery/gradle/2020-05-02_223221.png" alt="加载图片"></p>
 <hr>
 <p>以上情况出现后，在网络正常且1min中内仍无变化就100%被X了，导致无法下载。最快的解决方案为<br>在项目最外层的build.gradle的文件的<strong>repositories</strong>节点中添加阿里云的maven仓库[注意：在<strong>allprojects</strong>和<strong>buildscript</strong>都添加]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">    maven &#123;</span><br><span class="line">        url &apos;http://maven.aliyun.com/nexus/content/groups/public/&apos;</span><br><span class="line">    &#125;</span><br><span class="line">    google()</span><br><span class="line">    jcenter()</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">    maven &#123;</span><br><span class="line">        url &#x27;http://maven.aliyun.com/nexus/content/groups/public/&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">    google()</span><br><span class="line">    jcenter()</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>但是这并非最优解，用户可以直接修改新建项目时的gradle配置模板，从而每次新建项目中自动添加阿里云的maven仓库。</p>
 <p>步骤如下：</p>
 <ol>
@@ -216,14 +220,14 @@ var _hmt = _hmt || [];
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2020/05/29/c_language/" class="pre-post btn btn-default" title="">
+    <a href="/2020/05/29/c_language/" class="pre-post btn btn-default" title=''>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             </span>
     </a>
     
     
-    <a href="/2019/10/06/aidl1/" class="next-post btn btn-default" title="aidl的使用心得（一）">
+    <a href="/2019/10/06/aidl1/" class="next-post btn btn-default" title='aidl的使用心得（一）'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             aidl的使用心得（一）</span><i class="fa fa-angle-right fa-fw"></i>
@@ -266,7 +270,7 @@ var _hmt = _hmt || [];
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#新建项目加载下载aar包失败"><span class="toc-text">新建项目加载下载aar包失败</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE%E5%8A%A0%E8%BD%BD%E4%B8%8B%E8%BD%BDaar%E5%8C%85%E5%A4%B1%E8%B4%A5"><span class="toc-text">新建项目加载下载aar包失败</span></a></li></ol>
         
     </div>
 </aside>
@@ -309,6 +313,8 @@ var _hmt = _hmt || [];
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

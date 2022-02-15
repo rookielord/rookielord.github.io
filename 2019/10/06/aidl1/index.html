@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,17 +19,17 @@
     <link rel="dns-prefetch" href="https://rookielord.github.io">
     <!--SEO-->
 
-<meta name="keywords" content="android,aidl">
+<meta name="keywords" content="android,aidl" />
 
 
 <meta name="description" content="什么是AIDL?
-AIDL是指IPC(Internal progress Communicate)直译为进程间通信，在Android端就是指通俗的指两个APP之间通信。本人认为就是本地引用远程服...">
+AIDL是指IPC(Internal progress Communicate)直译为进程间通信，在Android端就是指通俗的指两个APP之间通信。本人认为就是本地引用远程服..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -46,9 +46,11 @@ AIDL是指IPC(Internal progress Communicate)直译为进程间通信，在Androi
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 
 <script>
@@ -65,7 +67,7 @@ var _hmt = _hmt || [];
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 6.0.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -75,10 +77,11 @@ var _hmt = _hmt || [];
 <div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
 <![endif]-->
 <body>
-    <header class="main-header" style="background-image:url(
-    http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="LJJ">
+        <a class="header-avatar" href="/" title='LJJ'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -158,7 +161,7 @@ var _hmt = _hmt || [];
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/aidl/">aidl</a> <a class="tag-link" href="/tags/android/">android</a>
+            <a class="tag-none-link" href="/tags/aidl/" rel="tag">aidl</a> <a class="tag-none-link" href="/tags/android/" rel="tag">android</a>
             
         </span>
     </span>
@@ -177,7 +180,7 @@ var _hmt = _hmt || [];
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                568</strong>
+                862</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -193,23 +196,23 @@ var _hmt = _hmt || [];
 </ol>
 <p>贴图支付宝</p>
 <h1 id="AIDL使用"><a href="#AIDL使用" class="headerlink" title="AIDL使用"></a>AIDL使用</h1><p>为了方便管理分为3个模块</p>
-<h2 id="包含内容"><a href="#包含内容" class="headerlink" title="包含内容"></a>包含内容</h2><h3 id="一、服务端-APP"><a href="#一、服务端-APP" class="headerlink" title="一、服务端(APP)"></a>一、服务端<strong>(APP)</strong></h3><ol>
+<h2 id="包含内容"><a href="#包含内容" class="headerlink" title="包含内容"></a>包含内容</h2><h3 id="一、服务端-APP"><a href="#一、服务端-APP" class="headerlink" title="一、服务端**(APP)**"></a>一、服务端**(APP)**</h3><ol>
 <li>定义Service服务，并写好服务中与变量的交互</li>
 </ol>
-<h3 id="二、客户端-APP"><a href="#二、客户端-APP" class="headerlink" title="二、客户端(APP)"></a>二、客户端<strong>(APP)</strong></h3><ol>
+<h3 id="二、客户端-APP"><a href="#二、客户端-APP" class="headerlink" title="二、客户端**(APP)**"></a>二、客户端**(APP)**</h3><ol>
 <li>引用包含Aidl Module的aar文件</li>
 <li>绑定对应服务</li>
 </ol>
-<h3 id="三、AIDL-Module-Lib"><a href="#三、AIDL-Module-Lib" class="headerlink" title="三、AIDL Module(Lib)"></a>三、AIDL Module<strong>(Lib)</strong></h3><ol>
+<h3 id="三、AIDL-Module-Lib"><a href="#三、AIDL-Module-Lib" class="headerlink" title="三、AIDL Module**(Lib)**"></a>三、AIDL Module**(Lib)**</h3><ol>
 <li>aidl文件夹：包括对应的aidl接口和传输的对象</li>
 <li>常量文件，一般包含服务端的服务的action和packageName，确保能够正常引用</li>
 <li>用于生成aar文件，方便引用</li>
 </ol>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="AIDL-Module"><a href="#AIDL-Module" class="headerlink" title="AIDL Module"></a>AIDL Module</h3><ol>
-<li>创建Aidl的Module包<br><img src="https://www.minicoder.cn/gallery/aidl/create_module.gif" alt="创建Module"></li>
-</ol>
-<ol start="2">
-<li>创建Aidl文件<br>其中包含<strong>定义接口</strong>和<strong>传递的对象</strong></li>
+<li><p>创建Aidl的Module包<br><img src="https://www.minicoder.cn/gallery/aidl/create_module.gif" alt="创建Module"></p>
+</li>
+<li><p>创建Aidl文件<br>其中包含<strong>定义接口</strong>和<strong>传递的对象</strong></p>
+</li>
 </ol>
 <p><img src="https://www.minicoder.cn/gallery/aidl/create_aidl_file1.png" alt="创建aidl1"></p>
 <p><img src="https://www.minicoder.cn/gallery/aidl/create_aidl_file2.png" alt="创建aidl2"></p>
@@ -226,14 +229,18 @@ var _hmt = _hmt || [];
 <ol start="4">
 <li>确定服务端APP的报名和服务的action名，写入常量中</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 此处定义服务的相关常量，以确保在客户端时能够具体找到。具体为在aidlserver的Mainifest中写的内容</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseConstant</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String ACTION = <span class="string">"com.minicoder.peopleservice"</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String PACKAGENAME = <span class="string">"com.minicoder.aidlserver"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="服务端-APP"><a href="#服务端-APP" class="headerlink" title="服务端(APP)"></a>服务端<strong>(APP)</strong></h3><ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 此处定义服务的相关常量，以确保在客户端时能够具体找到。具体为在aidlserver的Mainifest中写的内容</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BaseConstant</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">ACTION</span> <span class="operator">=</span> <span class="string">&quot;com.minicoder.peopleservice&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">PACKAGENAME</span> <span class="operator">=</span> <span class="string">&quot;com.minicoder.aidlserver&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="服务端-APP"><a href="#服务端-APP" class="headerlink" title="服务端**(APP)**###"></a>服务端**(APP)**###</h3><ol>
 <li>引用Aidl Moudle<br> implementation project(path: ‘:aidllib’)</li>
 <li>定义Service，注意在manifest中设置action名称，定义一个内部类Binder继承Stub,并实现对应aidl中定义的相关方法</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonService</span> <span class="keyword">extends</span> <span class="title">Service</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Common mComm = Common.getInstance();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> IBinder <span class="title">onBind</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> PersonBinder();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 此处实现aidl自动生成的Stub类</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonBinder</span> <span class="keyword">extends</span> <span class="title">IChatAidl</span>.<span class="title">Stub</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Person <span class="title">getPerson</span><span class="params">()</span> <span class="keyword">throws</span> RemoteException </span>&#123;</span><br><span class="line">            Person controller = mComm.getController();</span><br><span class="line">            <span class="keyword">return</span> controller;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">addPerson</span><span class="params">(Person p)</span> <span class="keyword">throws</span> RemoteException </span>&#123;</span><br><span class="line">            List&lt;Person&gt; personList = mComm.getPersons();</span><br><span class="line">            <span class="keyword">boolean</span> success = personList.add(p);</span><br><span class="line">            <span class="keyword">return</span> success ? personList.size() - <span class="number">1</span> : -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;service android:name=&quot;.PersonService&quot; &gt;</span><br><span class="line">           &lt;intent-filter&gt;</span><br><span class="line">               &lt;action android:name=&quot;com.minicoder.peopleservice&quot;/&gt;</span><br><span class="line">           &lt;/intent-filter&gt;</span><br><span class="line">       &lt;/service&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="客户端-APP"><a href="#客户端-APP" class="headerlink" title="客户端(APP)"></a>客户端<strong>(APP)</strong></h3><ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PersonService</span> <span class="keyword">extends</span> <span class="title class_">Service</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">Common</span> <span class="variable">mComm</span> <span class="operator">=</span> Common.getInstance();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> IBinder <span class="title function_">onBind</span><span class="params">(Intent intent)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">PersonBinder</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 此处实现aidl自动生成的Stub类</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">class</span> <span class="title class_">PersonBinder</span> <span class="keyword">extends</span> <span class="title class_">IChatAidl</span>.Stub &#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> Person <span class="title function_">getPerson</span><span class="params">()</span> <span class="keyword">throws</span> RemoteException &#123;</span><br><span class="line">            <span class="type">Person</span> <span class="variable">controller</span> <span class="operator">=</span> mComm.getController();</span><br><span class="line">            <span class="keyword">return</span> controller;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">addPerson</span><span class="params">(Person p)</span> <span class="keyword">throws</span> RemoteException &#123;</span><br><span class="line">            List&lt;Person&gt; personList = mComm.getPersons();</span><br><span class="line">            <span class="type">boolean</span> <span class="variable">success</span> <span class="operator">=</span> personList.add(p);</span><br><span class="line">            <span class="keyword">return</span> success ? personList.size() - <span class="number">1</span> : -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;service android:name=&quot;.PersonService&quot; &gt;</span><br><span class="line">           &lt;intent-filter&gt;</span><br><span class="line">               &lt;action android:name=&quot;com.minicoder.peopleservice&quot;/&gt;</span><br><span class="line">           &lt;/intent-filter&gt;</span><br><span class="line">       &lt;/service&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="客户端-APP"><a href="#客户端-APP" class="headerlink" title="客户端**(APP)**###"></a>客户端**(APP)**###</h3><ol>
 <li>引用Aidl Moudle</li>
 <li>绑定服务</li>
 <li>使用Stub.asInterface(service),将其转化为对应接口</li>
@@ -243,7 +250,7 @@ var _hmt = _hmt || [];
 <ul>
 <li>此处获取的对象，不是服务端中的对象，所以在此处更改对象里面的值服务端不会更新，客户端只能将需要修改的值传入然后在服务端的binder中再进行修改</li>
 </ul>
-<p><a href="https://download.csdn.net/download/asasaas12/11834412" title="下载" target="_blank" rel="noopener">源码下载地址</a></p>
+<p><a target="_blank" rel="noopener" href="https://download.csdn.net/download/asasaas12/11834412" title="下载">源码下载地址</a></p>
 <p>演示demo</p>
 <p><img src="https://www.minicoder.cn/gallery/aidl/demo.gif" alt="包含的文档"></p>
 
@@ -264,14 +271,14 @@ var _hmt = _hmt || [];
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2020/05/02/gradle-tech/" class="pre-post btn btn-default" title="AS使用Gradle技巧">
+    <a href="/2020/05/02/gradle-tech/" class="pre-post btn btn-default" title='AS使用Gradle技巧'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             AS使用Gradle技巧</span>
     </a>
     
     
-    <a href="/2019/09/28/ConstrantLayout/" class="next-post btn btn-default" title="ConstrantLayout布局相关">
+    <a href="/2019/09/28/ConstrantLayout/" class="next-post btn btn-default" title='ConstrantLayout布局相关'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             ConstrantLayout布局相关</span><i class="fa fa-angle-right fa-fw"></i>
@@ -314,7 +321,7 @@ var _hmt = _hmt || [];
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是AIDL"><span class="toc-text">什么是AIDL?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AIDL应用场景"><span class="toc-text">AIDL应用场景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AIDL使用"><span class="toc-text">AIDL使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#包含内容"><span class="toc-text">包含内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、服务端-APP"><span class="toc-text">一、服务端(APP)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、客户端-APP"><span class="toc-text">二、客户端(APP)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、AIDL-Module-Lib"><span class="toc-text">三、AIDL Module(Lib)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AIDL-Module"><span class="toc-text">AIDL Module</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意："><span class="toc-text">注意：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#服务端-APP"><span class="toc-text">服务端(APP)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端-APP"><span class="toc-text">客户端(APP)</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFAIDL"><span class="toc-text">什么是AIDL?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AIDL%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">AIDL应用场景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AIDL%E4%BD%BF%E7%94%A8"><span class="toc-text">AIDL使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%85%E5%90%AB%E5%86%85%E5%AE%B9"><span class="toc-text">包含内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%9C%8D%E5%8A%A1%E7%AB%AF-APP"><span class="toc-text">一、服务端**(APP)**</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AE%A2%E6%88%B7%E7%AB%AF-APP"><span class="toc-text">二、客户端**(APP)**</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81AIDL-Module-Lib"><span class="toc-text">三、AIDL Module**(Lib)**</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AIDL-Module"><span class="toc-text">AIDL Module</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%9A"><span class="toc-text">注意：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF-APP"><span class="toc-text">服务端**(APP)**###</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF-APP"><span class="toc-text">客户端**(APP)**###</span></a></li></ol></li></ol></li></ol>
         
     </div>
 </aside>
@@ -357,6 +364,8 @@ var _hmt = _hmt || [];
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

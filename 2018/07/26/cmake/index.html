@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,7 +19,7 @@
     <link rel="dns-prefetch" href="https://rookielord.github.io">
     <!--SEO-->
 
-<meta name="keywords" content="cmake,jni">
+<meta name="keywords" content="cmake,jni" />
 
 
 <meta name="description" content="准备内容
@@ -28,13 +28,13 @@ AS2.2以上的AS（博主使用的是AS3.1)
 NDK编译包（博主使用的是android-ndk-r14b）
 
 以下为AS和NDK包的下载地址
-AS:https:/...">
+AS:https:/..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -51,9 +51,11 @@ AS:https:/...">
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 
 <script>
@@ -70,7 +72,7 @@ var _hmt = _hmt || [];
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 6.0.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -80,10 +82,11 @@ var _hmt = _hmt || [];
 <div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
 <![endif]-->
 <body>
-    <header class="main-header" style="background-image:url(
-    http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="LJJ">
+        <a class="header-avatar" href="/" title='LJJ'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -155,7 +158,7 @@ var _hmt = _hmt || [];
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a class="category-link" href="/categories/代码/">代码</a>
+        <a class="category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
     </span>
     
     
@@ -163,7 +166,7 @@ var _hmt = _hmt || [];
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/cmake/">cmake</a> <a class="tag-link" href="/tags/jni/">jni</a>
+            <a class="tag-none-link" href="/tags/cmake/" rel="tag">cmake</a> <a class="tag-none-link" href="/tags/jni/" rel="tag">jni</a>
             
         </span>
     </span>
@@ -182,7 +185,7 @@ var _hmt = _hmt || [];
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                1004</strong>
+                1299</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -195,76 +198,44 @@ var _hmt = _hmt || [];
 <li>NDK编译包（博主使用的是android-ndk-r14b）</li>
 </ol>
 <p>以下为AS和NDK包的下载地址</p>
-<p>AS:<a href="https://developer.android.google.cn/studio/" target="_blank" rel="noopener">https://developer.android.google.cn/studio/</a></p>
-<p>NDK:<br><a href="https://developer.android.google.cn/ndk/downloads/" title="NDK" target="_blank" rel="noopener">https://developer.android.google.cn/ndk/downloads/</a></p>
+<p>AS:<a target="_blank" rel="noopener" href="https://developer.android.google.cn/studio/">https://developer.android.google.cn/studio/</a></p>
+<p>NDK:<br><a target="_blank" rel="noopener" href="https://developer.android.google.cn/ndk/downloads/" title="NDK">https://developer.android.google.cn/ndk/downloads/</a></p>
 <h1 id="前期工作"><a href="#前期工作" class="headerlink" title="前期工作"></a>前期工作</h1><ol>
 <li>解压下载完成的NDK包，并放在根目录下，位置可以不在C盘，但路径中不允许出现空格或中文字符</li>
 <li>打开AS，在configure中选取，Project defauts中选取Project Structure设置NDK路径，这样新建NDK项目后就不用每次重新设置。</li>
 </ol>
 <blockquote>
-<p>若无法设置，则可以到新建AS安装目录下直接设置NDK路径<br>在C:\Program Files\Android\Android Studio\plugins\android\lib\templates\gradle-projects\NewAndroidProject\root\local.properties.ftl中添加末尾一行指定NDK编译路径<br>ndk.dir=C\:\android-ndk-r14b</p>
+<p>若无法设置，则可以到新建AS安装目录下直接设置NDK路径<br>在C:\Program Files\Android\Android Studio\plugins\android\lib\templates\gradle-projects\NewAndroidProject\root\local.properties.ftl中添加末尾一行指定NDK编译路径<br>ndk.dir&#x3D;C:\android-ndk-r14b</p>
 </blockquote>
-<p><img src="https://i.imgur.com/3Avh6di.png" alt=""></p>
-<ol start="3">
-<li>设置快速jni编译命令<br>点击File-Setting-Tool在External中按照以下方式编译javah,命令，确保能够通过该命令快速生成java对应的.h文件<strong>（注意：此处JDK的路径需要设置为java的jdk路径，使用AS自带的路径很可能无法编译）</strong></li>
-</ol>
-<h2 id="h文件快速生成命令"><a href="#h文件快速生成命令" class="headerlink" title=".h文件快速生成命令"></a>.h文件快速生成命令</h2><p><img src="https://i.imgur.com/qzeLJD9.png" alt=""></p>
+<p><img src="https://i.imgur.com/3Avh6di.png"><br>3. 设置快速jni编译命令<br>点击File-Setting-Tool在External中按照以下方式编译javah,命令，确保能够通过该命令快速生成java对应的.h文件<strong>（注意：此处JDK的路径需要设置为java的jdk路径，使用AS自带的路径很可能无法编译）</strong></p>
+<h2 id="h文件快速生成命令"><a href="#h文件快速生成命令" class="headerlink" title=".h文件快速生成命令"></a>.h文件快速生成命令</h2><p><img src="https://i.imgur.com/qzeLJD9.png"></p>
 <hr>
 <h2 id="NDK-生成so命令（该命令可以不用）"><a href="#NDK-生成so命令（该命令可以不用）" class="headerlink" title="NDK 生成so命令（该命令可以不用）"></a>NDK 生成so命令（该命令可以不用）</h2><p><img src="https://i.imgur.com/Ovxy8Dt.png" alt="ndk build，可不需要"></p>
 <hr>
 <h2 id="NDK清空命令（该命令可以不用）"><a href="#NDK清空命令（该命令可以不用）" class="headerlink" title="NDK清空命令（该命令可以不用）"></a>NDK清空命令（该命令可以不用）</h2><p><img src="https://i.imgur.com/bwGYa0T.png" alt="ndk clean，可不需要"></p>
 <h1 id="测试NDK是否可以编译"><a href="#测试NDK是否可以编译" class="headerlink" title="测试NDK是否可以编译"></a>测试NDK是否可以编译</h1><ol>
-<li>新建一个Android Project jni项目，然后把这三个<br><img src="https://i.imgur.com/n5K54cm.png" alt=""></li>
+<li>新建一个Android Project jni项目，然后把这三个<br><img src="https://i.imgur.com/n5K54cm.png"></li>
 <li>选中C++版本11或14，这里我选择了11，下面两个可以不勾选，一般jni编译不会用到</li>
 </ol>
-<p><img src="https://i.imgur.com/6t3S8Kv.png" alt=""></p>
-<ol start="3">
-<li>编译完成如果没有安装Cmake包则会提示用户自己去下载，安装完成后，即可开始jni的编程</li>
-</ol>
+<p><img src="https://i.imgur.com/6t3S8Kv.png"><br>3. 编译完成如果没有安装Cmake包则会提示用户自己去下载，安装完成后，即可开始jni的编程</p>
 <ul>
-<li>Activity界面</li>
+<li><p>Activity界面</p>
+<p>  public class MainActivity extends AppCompatActivity {<br>  &#x2F;&#x2F; 使用该静态代码块指定加载的jni即so包<br>  static {<br>  System.loadLibrary(“native-lib”);<br>  }</p>
+<p>  @Override<br>  protected void onCreate(Bundle savedInstanceState) {<br>  super.onCreate(savedInstanceState);<br>  setContentView(R.layout.activity_main);</p>
+<p>  &#x2F;&#x2F; Example of a call to a native method<br>  TextView tv &#x3D; (TextView) findViewById(R.id.sample_text);<br>  tv.setText(stringFromJNI());<br>  }</p>
+<p>  &#x2F;&#x2F; jni调用的方法，该方法需要有对应的cpp文件<br>  public native String stringFromJNI();<br>  }</p>
+</li>
+<li><p>cpp文件</p>
+<p>  #include &lt;jni.h&gt;<br>  #include <string><br>  extern “C” JNIEXPORT jstring<br>  JNICALL<br>  Java_com_minicoder_cmakedmo_MainActivity_stringFromJNI(<br>  JNIEnv <em>env,<br>  jobject &#x2F;</em> this *&#x2F;) {<br>  std::string hello &#x3D; “Hello from C++”;<br>  return env-&gt;NewStringUTF(hello.c_str());<br>  }</p>
+</li>
+<li><p>CMakeLists.txt(该文件自动生成，注意其中的几个变量设置)</p>
+</li>
 </ul>
-<pre><code>public class MainActivity extends AppCompatActivity {
-// 使用该静态代码块指定加载的jni即so包
-static {
-System.loadLibrary(&quot;native-lib&quot;);
-}
-
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-super.onCreate(savedInstanceState);
-setContentView(R.layout.activity_main);
-
-// Example of a call to a native method
-TextView tv = (TextView) findViewById(R.id.sample_text);
-tv.setText(stringFromJNI());
-}
-
-
-// jni调用的方法，该方法需要有对应的cpp文件
-public native String stringFromJNI();
-}
-</code></pre><ul>
-<li>cpp文件</li>
-</ul>
-<pre><code>#include &lt;jni.h&gt;
-#include &lt;string&gt;
-extern &quot;C&quot; JNIEXPORT jstring
-JNICALL
-Java_com_minicoder_cmakedmo_MainActivity_stringFromJNI(
-JNIEnv *env,
-jobject /* this */) {
-std::string hello = &quot;Hello from C++&quot;;
-return env-&gt;NewStringUTF(hello.c_str());
-}
-</code></pre><ul>
-<li>CMakeLists.txt(该文件自动生成，注意其中的几个变量设置)</li>
-</ul>
-<p><img src="https://i.imgur.com/PBp9auj.png" alt=""></p>
+<p><img src="https://i.imgur.com/PBp9auj.png"></p>
 <ol start="4">
 <li>只要可以在确定APP可以正常运行则则表示搭建jni编译环境成功</li>
 </ol>
-<p><img src="https://i.imgur.com/5IdG86b.png" alt=""></p>
+<p><img src="https://i.imgur.com/5IdG86b.png"></p>
 
     </div>
     
@@ -283,14 +254,14 @@ return env-&gt;NewStringUTF(hello.c_str());
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2018/07/28/cmake2/" class="pre-post btn btn-default" title="从零开始使用Cmake进行jni编程教程(二)：打包so和jar包">
+    <a href="/2018/07/28/cmake2/" class="pre-post btn btn-default" title='从零开始使用Cmake进行jni编程教程(二)：打包so和jar包'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             从零开始使用Cmake进行jni编程教程(二)：打包so和jar包</span>
     </a>
     
     
-    <a href="/2018/07/22/intDef/" class="next-post btn btn-default" title="使用注解机制代替枚举">
+    <a href="/2018/07/22/intDef/" class="next-post btn btn-default" title='使用注解机制代替枚举'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             使用注解机制代替枚举</span><i class="fa fa-angle-right fa-fw"></i>
@@ -333,7 +304,7 @@ return env-&gt;NewStringUTF(hello.c_str());
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#准备内容"><span class="toc-text">准备内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#前期工作"><span class="toc-text">前期工作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#h文件快速生成命令"><span class="toc-text">.h文件快速生成命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NDK-生成so命令（该命令可以不用）"><span class="toc-text">NDK 生成so命令（该命令可以不用）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NDK清空命令（该命令可以不用）"><span class="toc-text">NDK清空命令（该命令可以不用）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#测试NDK是否可以编译"><span class="toc-text">测试NDK是否可以编译</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%86%85%E5%AE%B9"><span class="toc-text">准备内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E6%9C%9F%E5%B7%A5%E4%BD%9C"><span class="toc-text">前期工作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#h%E6%96%87%E4%BB%B6%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E5%91%BD%E4%BB%A4"><span class="toc-text">.h文件快速生成命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NDK-%E7%94%9F%E6%88%90so%E5%91%BD%E4%BB%A4%EF%BC%88%E8%AF%A5%E5%91%BD%E4%BB%A4%E5%8F%AF%E4%BB%A5%E4%B8%8D%E7%94%A8%EF%BC%89"><span class="toc-text">NDK 生成so命令（该命令可以不用）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NDK%E6%B8%85%E7%A9%BA%E5%91%BD%E4%BB%A4%EF%BC%88%E8%AF%A5%E5%91%BD%E4%BB%A4%E5%8F%AF%E4%BB%A5%E4%B8%8D%E7%94%A8%EF%BC%89"><span class="toc-text">NDK清空命令（该命令可以不用）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95NDK%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E7%BC%96%E8%AF%91"><span class="toc-text">测试NDK是否可以编译</span></a></li></ol>
         
     </div>
 </aside>
@@ -376,6 +347,8 @@ return env-&gt;NewStringUTF(hello.c_str());
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

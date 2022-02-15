@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,7 +19,7 @@
     <link rel="dns-prefetch" href="https://rookielord.github.io">
     <!--SEO-->
 
-<meta name="keywords" content="poi,word">
+<meta name="keywords" content="poi,word" />
 
 
 <meta name="description" content="操作步骤
@@ -28,13 +28,13 @@
 步骤三：调用word文件对象的方法对文件进行操作
 
 步骤一：引用相关的POI库
-吐槽一下，这一步是最坑的本人尝试了很多...">
+吐槽一下，这一步是最坑的本人尝试了很多..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -51,9 +51,11 @@
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 
 <script>
@@ -70,7 +72,7 @@ var _hmt = _hmt || [];
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 6.0.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -80,10 +82,11 @@ var _hmt = _hmt || [];
 <div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
 <![endif]-->
 <body>
-    <header class="main-header" style="background-image:url(
-    http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="LJJ">
+        <a class="header-avatar" href="/" title='LJJ'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -163,7 +166,7 @@ var _hmt = _hmt || [];
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/poi/">poi</a> <a class="tag-link" href="/tags/word/">word</a>
+            <a class="tag-none-link" href="/tags/poi/" rel="tag">poi</a> <a class="tag-none-link" href="/tags/word/" rel="tag">word</a>
             
         </span>
     </span>
@@ -180,6 +183,12 @@ var _hmt = _hmt || [];
 </div>
         
         
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                321</strong>
+            天之前发表，文中内容可能已经过时。
+        </p>
+        
     </div>
     
     <div class="post-body post-content">
@@ -189,7 +198,7 @@ var _hmt = _hmt || [];
 <li>步骤三：调用word文件对象的方法对文件进行操作</li>
 </ol>
 <h1 id="步骤一：引用相关的POI库"><a href="#步骤一：引用相关的POI库" class="headerlink" title="步骤一：引用相关的POI库"></a>步骤一：引用相关的POI库</h1><blockquote>
-<p>吐槽一下，这一步是<font color="red"><strong>最坑的</strong></font><br>本人尝试了很多版本组合，最新的版本提示class重复引用。老的版本又有存在图片插入后损坏文件。本人把能用的放在后面</p>
+<p>吐槽一下，这一步是<font color='red'><strong>最坑的</strong></font><br>本人尝试了很多版本组合，最新的版本提示class重复引用。老的版本又有存在图片插入后损坏文件。本人把能用的放在后面</p>
 </blockquote>
 <table>
 <thead>
@@ -198,8 +207,7 @@ var _hmt = _hmt || [];
 <th>效果</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>通过gradle引用3.14poi</td>
 <td>使用javatest能够通过，但在编译apk时提示重复类</td>
 </tr>
@@ -213,15 +221,18 @@ var _hmt = _hmt || [];
 </tr>
 <tr>
 <td>通过gradle混合加载版本</td>
-<td><font color="green"><strong>能够使用</strong></font></td>
+<td><font color='green'><strong>能够使用</strong></font></td>
 </tr>
-</tbody>
-</table>
-<h2 id="错误引用1-生成app提示类重复"><a href="#错误引用1-生成app提示类重复" class="headerlink" title="错误引用1-生成app提示类重复"></a>错误引用1-生成app提示类重复</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">implementation &apos;org.apache.poi:poi-ooxml:3.14&apos;</span><br><span class="line">implementation &apos;org.apache.poi:poi-excelant:3.14&apos;</span><br><span class="line">implementation &apos;org.apache.poi:poi-examples:3.14&apos;</span><br><span class="line">implementation &apos;org.apache.xmlbeans:xmlbeans:2.6.0&apos;</span><br></pre></td></tr></table></figure>
-<p><img src="./2021-04-03_175056.png" alt="图片"></p>
+</tbody></table>
+<h2 id="错误引用1-生成app提示类重复"><a href="#错误引用1-生成app提示类重复" class="headerlink" title="错误引用1-生成app提示类重复"></a>错误引用1-生成app提示类重复</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">implementation &#x27;org.apache.poi:poi-ooxml:3.14&#x27;</span><br><span class="line">implementation &#x27;org.apache.poi:poi-excelant:3.14&#x27;</span><br><span class="line">implementation &#x27;org.apache.poi:poi-examples:3.14&#x27;</span><br><span class="line">implementation &#x27;org.apache.xmlbeans:xmlbeans:2.6.0&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./2021-04-03_175056.png" alt="图片"></p>
 <h2 id="错误引用2-添加图片时doc错误"><a href="#错误引用2-添加图片时doc错误" class="headerlink" title="错误引用2-添加图片时doc错误"></a>错误引用2-添加图片时doc错误</h2><p>目前采用直接加载jar包的方式，引用库加载文件如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">implementation files(&apos;libs/poi-3.8-20120326.jar&apos;)</span><br><span class="line">implementation files(&apos;libs/poi-ooxml-3.8-20120326.jar&apos;)</span><br><span class="line">implementation files(&apos;libs/poi-ooxml-schemas-3.8-20120326.jar&apos;)</span><br><span class="line">implementation files(&apos;libs/xmlbeans-2.3.0.jar&apos;)</span><br><span class="line">implementation files(&apos;libs/commons-logging-1.1.jar&apos;)</span><br><span class="line">implementation files(&apos;libs/dom4j-1.6.1.jar&apos;)</span><br><span class="line">implementation files(&apos;libs/stax-api-1.0.1.jar&apos;)</span><br></pre></td></tr></table></figure>
-<h2 id="正确引用-混合版本加载"><a href="#正确引用-混合版本加载" class="headerlink" title="正确引用-混合版本加载"></a>正确引用-混合版本加载</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">implementation group: &apos;org.apache.poi&apos;, name: &apos;poi-ooxml&apos;, version: &apos;3.17&apos;</span><br><span class="line">implementation group: &apos;org.apache.xmlbeans&apos;, name: &apos;xmlbeans&apos;, version: &apos;3.1.0&apos;</span><br><span class="line">implementation &apos;javax.xml.stream:stax-api:1.0&apos;</span><br><span class="line">implementation &apos;com.fasterxml:aalto-xml:1.2.2&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">implementation files(&#x27;libs/poi-3.8-20120326.jar&#x27;)</span><br><span class="line">implementation files(&#x27;libs/poi-ooxml-3.8-20120326.jar&#x27;)</span><br><span class="line">implementation files(&#x27;libs/poi-ooxml-schemas-3.8-20120326.jar&#x27;)</span><br><span class="line">implementation files(&#x27;libs/xmlbeans-2.3.0.jar&#x27;)</span><br><span class="line">implementation files(&#x27;libs/commons-logging-1.1.jar&#x27;)</span><br><span class="line">implementation files(&#x27;libs/dom4j-1.6.1.jar&#x27;)</span><br><span class="line">implementation files(&#x27;libs/stax-api-1.0.1.jar&#x27;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="正确引用-混合版本加载"><a href="#正确引用-混合版本加载" class="headerlink" title="正确引用-混合版本加载"></a>正确引用-混合版本加载</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">implementation group: &#x27;org.apache.poi&#x27;, name: &#x27;poi-ooxml&#x27;, version: &#x27;3.17&#x27;</span><br><span class="line">implementation group: &#x27;org.apache.xmlbeans&#x27;, name: &#x27;xmlbeans&#x27;, version: &#x27;3.1.0&#x27;</span><br><span class="line">implementation &#x27;javax.xml.stream:stax-api:1.0&#x27;</span><br><span class="line">implementation &#x27;com.fasterxml:aalto-xml:1.2.2&#x27;</span><br></pre></td></tr></table></figure>
+
+
 <h1 id="步骤二：创建POI对应的Document对象"><a href="#步骤二：创建POI对应的Document对象" class="headerlink" title="步骤二：创建POI对应的Document对象"></a>步骤二：创建POI对应的Document对象</h1><blockquote>
 <p>首先区别你要加载的word后缀，是<code>.doc</code>还是<code>.docx</code>，因为这两个所创建的对象不一样，如果不对号入座则会报错</p>
 </blockquote>
@@ -233,8 +244,7 @@ var _hmt = _hmt || [];
 <th>创建对象</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>doc</code></td>
 <td><code>HWPFDocument</code></td>
 </tr>
@@ -242,12 +252,15 @@ var _hmt = _hmt || [];
 <td><code>docx</code></td>
 <td><code>XWPFDocument</code></td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>由于<code>doc</code>是2003年的word版本，此处暂时略过。主要使用<code>docx</code>进行作业</p>
-<h1 id="步骤三：文件操作"><a href="#步骤三：文件操作" class="headerlink" title="步骤三：文件操作"></a>步骤三：文件操作</h1><center><br><img src="./2021-04-03_214714.png" alt=""><br><u>文章类结构</u><br></center>
+<h1 id="步骤三：文件操作"><a href="#步骤三：文件操作" class="headerlink" title="步骤三：文件操作"></a>步骤三：文件操作</h1><center>
+![](./2021-04-03_214714.png)
+<u>文章类结构</u>
+</center>
 
-<h2 id="获取主要信息"><a href="#获取主要信息" class="headerlink" title="获取主要信息"></a>获取主要信息</h2><h3 id="读取字段信息"><a href="#读取字段信息" class="headerlink" title="读取字段信息"></a>读取字段信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 段落，一般只文字内容,图片表格等其他字符，会作为空字符</span><br><span class="line">List&lt;XWPFParagraph&gt; paragraphs = doc.getParagraphs();</span><br><span class="line">// 表格，整文档中的所有表格</span><br><span class="line">List&lt;XWPFTable&gt; tables = doc.getTables();</span><br><span class="line">// 图片，获取的都是byte[]</span><br><span class="line">List&lt;XWPFPictureData&gt; allPictures = doc.getAllPictures();</span><br><span class="line">// 页眉，只能获取不同内容的页眉</span><br><span class="line">List&lt;XWPFHeader&gt; headerList = doc.getHeaderList();</span><br><span class="line">// 页脚，注意自动生成的编号不会被获取到，只能获取不同类型的页脚</span><br><span class="line">List&lt;XWPFFooter&gt; footerList = doc.getFooterList();</span><br></pre></td></tr></table></figure>
+<h2 id="获取主要信息"><a href="#获取主要信息" class="headerlink" title="获取主要信息"></a>获取主要信息</h2><h3 id="读取字段信息"><a href="#读取字段信息" class="headerlink" title="读取字段信息"></a>读取字段信息</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 段落，一般只文字内容,图片表格等其他字符，会作为空字符</span><br><span class="line">List&lt;XWPFParagraph&gt; paragraphs = doc.getParagraphs();</span><br><span class="line">// 表格，整文档中的所有表格</span><br><span class="line">List&lt;XWPFTable&gt; tables = doc.getTables();</span><br><span class="line">// 图片，获取的都是byte[]</span><br><span class="line">List&lt;XWPFPictureData&gt; allPictures = doc.getAllPictures();</span><br><span class="line">// 页眉，只能获取不同内容的页眉</span><br><span class="line">List&lt;XWPFHeader&gt; headerList = doc.getHeaderList();</span><br><span class="line">// 页脚，注意自动生成的编号不会被获取到，只能获取不同类型的页脚</span><br><span class="line">List&lt;XWPFFooter&gt; footerList = doc.getFooterList();</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h3 id="编辑文档内容（覆盖和添加）"><a href="#编辑文档内容（覆盖和添加）" class="headerlink" title="编辑文档内容（覆盖和添加）"></a>编辑文档内容（覆盖和添加）</h3><blockquote>
 <ol>
 <li>注意使用POI的修改操作比较繁琐，建议直接准备一个空文件进行填充</li>
@@ -264,19 +277,47 @@ var _hmt = _hmt || [];
 <li>使用<code>run.setText(&quot;修改内容&quot;, 0)</code>方法修改</li>
 </ol>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">List&lt;XWPFParagraph&gt; paragraphs = doc.getParagraphs();</span><br><span class="line">     for (int i = 0; i &lt; paragraphs.size(); i++) &#123;</span><br><span class="line">         XWPFParagraph para = paragraphs.get(i);</span><br><span class="line">         String text = para.getText();</span><br><span class="line">         if (!TextUtils.isEmpty(text)) &#123;</span><br><span class="line">             index = text.indexOf(GOAL);</span><br><span class="line">             if (index != -1) &#123;</span><br><span class="line">                 List&lt;XWPFRun&gt; runs = para.getRuns();</span><br><span class="line">                 for (XWPFRun run : runs) &#123;</span><br><span class="line">                     if (run.toString().equals(&quot;GOAL&quot;)) &#123;</span><br><span class="line">                         run.setText(&quot;修改内容&quot;, 0);</span><br><span class="line">                     &#125;</span><br><span class="line">                 &#125;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
-<font color="red"><strong>注意：</strong></font><br>1. 一定要添加第二个参数<code>0</code>，否则会变成插入操作<br>2. 需要查找的内容不要增加特殊符号，特殊符号会被识别为单独的<code>XWPFRun</code>对象<br><br><br><br><br><strong>（二） 表格修改</strong><br><br>&gt;<strong>操作步骤</strong><br>&gt;1. 确定需要处理的表格是第几个<br>&gt;2. 根据确定需要编辑的数据在第几行，第几列后，通过<code>XWPFTable</code>-&gt;<code>XWPFTableRow</code>-&gt;<code>CTRow</code>-&gt;<code>XWPFTableCell</code><br>&gt;3. 在获取到<code>XWPFTableCell</code>后调用<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//表格</span><br><span class="line">      List&lt;XWPFTable&gt; tables = doc.getTables();</span><br><span class="line">      XWPFTable table = tables.get(0);</span><br><span class="line">      table.getRow(0).getCell(1).setText(&quot;LJJ&quot;);</span><br><span class="line">      table.getRow(1).getCell(1).setText(&quot;29&quot;);</span><br><span class="line">      table.getRow(2).getCell(1).setText(&quot;地球&quot;);</span><br></pre></td></tr></table></figure><br><br><font color="red"><strong>注意：</strong></font><br>1. 若担心异常退出，可以做一些长度限制，通过<code>table.getRows();</code>，然后每一行的<code>row.getCtRow()sizeOfTcArray();</code>判断列数<br><br><strong>（三） 图片插入</strong><br><br>此处默认在最后插入图片，插入图片的方式是通过输入流的方式插入<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">XWPFRun run = doc.createParagraph().createRun();</span><br><span class="line">            FileInputStream picIn = new FileInputStream(new File(picPath));</span><br><span class="line">            run.addPicture(picIn, XWPFDocument.PICTURE_TYPE_PNG, &quot;插入图片&quot;, Units.toEMU(256), Units.toEMU(256));</span><br><span class="line">            FileUtils.close(picIn);</span><br></pre></td></tr></table></figure><br><br><font color="red"><strong>注意：</strong></font>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">List&lt;XWPFParagraph&gt; paragraphs = doc.getParagraphs();</span><br><span class="line">     for (int i = 0; i &lt; paragraphs.size(); i++) &#123;</span><br><span class="line">         XWPFParagraph para = paragraphs.get(i);</span><br><span class="line">         String text = para.getText();</span><br><span class="line">         if (!TextUtils.isEmpty(text)) &#123;</span><br><span class="line">             index = text.indexOf(GOAL);</span><br><span class="line">             if (index != -1) &#123;</span><br><span class="line">                 List&lt;XWPFRun&gt; runs = para.getRuns();</span><br><span class="line">                 for (XWPFRun run : runs) &#123;</span><br><span class="line">                     if (run.toString().equals(&quot;GOAL&quot;)) &#123;</span><br><span class="line">                         run.setText(&quot;修改内容&quot;, 0);</span><br><span class="line">                     &#125;</span><br><span class="line">                 &#125;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
 
+
+<p><font color='red'><strong>注意：</strong></font></p>
+<ol>
+<li>一定要添加第二个参数<code>0</code>，否则会变成插入操作</li>
+<li>需要查找的内容不要增加特殊符号，特殊符号会被识别为单独的<code>XWPFRun</code>对象</li>
+</ol>
+<p><strong>（二） 表格修改</strong></p>
+<blockquote>
+<p><strong>操作步骤</strong></p>
+<ol>
+<li>确定需要处理的表格是第几个</li>
+<li>根据确定需要编辑的数据在第几行，第几列后，通过<code>XWPFTable</code>-&gt;<code>XWPFTableRow</code>-&gt;<code>CTRow</code>-&gt;<code>XWPFTableCell</code></li>
+<li>在获取到<code>XWPFTableCell</code>后调用</li>
+</ol>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//表格</span><br><span class="line">      List&lt;XWPFTable&gt; tables = doc.getTables();</span><br><span class="line">      XWPFTable table = tables.get(0);</span><br><span class="line">      table.getRow(0).getCell(1).setText(&quot;LJJ&quot;);</span><br><span class="line">      table.getRow(1).getCell(1).setText(&quot;29&quot;);</span><br><span class="line">      table.getRow(2).getCell(1).setText(&quot;地球&quot;);</span><br></pre></td></tr></table></figure>
+
+
+<p><font color='red'><strong>注意：</strong></font></p>
+<ol>
+<li>若担心异常退出，可以做一些长度限制，通过<code>table.getRows();</code>，然后每一行的<code>row.getCtRow()sizeOfTcArray();</code>判断列数</li>
+</ol>
+<p><strong>（三） 图片插入</strong></p>
+<p>此处默认在最后插入图片，插入图片的方式是通过输入流的方式插入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">XWPFRun run = doc.createParagraph().createRun();</span><br><span class="line">            FileInputStream picIn = new FileInputStream(new File(picPath));</span><br><span class="line">            run.addPicture(picIn, XWPFDocument.PICTURE_TYPE_PNG, &quot;插入图片&quot;, Units.toEMU(256), Units.toEMU(256));</span><br><span class="line">            FileUtils.close(picIn);</span><br></pre></td></tr></table></figure>
+
+<p><font color='red'><strong>注意：</strong></font></p>
 <ol>
 <li><p>插入图片打开word出现错误，则需要升级poi版本。目前可以使用的我已经上传在最上面的下载地址了</p>
-<center><br><img src="./2021-04-03_234422.png" alt=""><br><u>导入图片打开提示错误</u></center>
+<center>
+![](./2021-04-03_234422.png)
+<u>导入图片打开提示错误</u></center>
 </li>
 <li><p>插入图片的宽和高，一定要使用<code>Units.toEMU</code>方法，并传入想要显示的宽和高。直接传入宽和高无法显示</p>
 </li>
 </ol>
-<h1 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h1><p><img src="./word_display.gif" alt="动态演示"></p>
-<h2 id="原始内容"><a href="#原始内容" class="headerlink" title="原始内容"></a>原始内容</h2><p><img src="./2021-04-04_135523.png" alt="原始效果"></p>
-<h2 id="输出内容"><a href="#输出内容" class="headerlink" title="输出内容"></a>输出内容</h2><p><img src="./2021-04-04_140729.png" alt="输出内容"></p>
+<h1 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h1><p><img src="/./word_display.gif" alt="动态演示"></p>
+<h2 id="原始内容"><a href="#原始内容" class="headerlink" title="原始内容"></a>原始内容</h2><p><img src="/./2021-04-04_135523.png" alt="原始效果"></p>
+<h2 id="输出内容"><a href="#输出内容" class="headerlink" title="输出内容"></a>输出内容</h2><p><img src="/./2021-04-04_140729.png" alt="输出内容"></p>
 
     </div>
     
@@ -295,14 +336,14 @@ var _hmt = _hmt || [];
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2021/04/06/kotlin/" class="pre-post btn btn-default" title="kotlin如何创建匿名函数">
+    <a href="/2021/04/06/kotlin/" class="pre-post btn btn-default" title='kotlin如何创建匿名函数'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             kotlin如何创建匿名函数</span>
     </a>
     
     
-    <a href="/2021/03/28/dialog/" class="next-post btn btn-default" title="Dialog控件学习">
+    <a href="/2021/03/28/dialog/" class="next-post btn btn-default" title='Dialog控件学习'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             Dialog控件学习</span><i class="fa fa-angle-right fa-fw"></i>
@@ -345,7 +386,7 @@ var _hmt = _hmt || [];
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#操作步骤"><span class="toc-text">操作步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#步骤一：引用相关的POI库"><span class="toc-text">步骤一：引用相关的POI库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#错误引用1-生成app提示类重复"><span class="toc-text">错误引用1-生成app提示类重复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#错误引用2-添加图片时doc错误"><span class="toc-text">错误引用2-添加图片时doc错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正确引用-混合版本加载"><span class="toc-text">正确引用-混合版本加载</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#步骤二：创建POI对应的Document对象"><span class="toc-text">步骤二：创建POI对应的Document对象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#步骤三：文件操作"><span class="toc-text">步骤三：文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#获取主要信息"><span class="toc-text">获取主要信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#读取字段信息"><span class="toc-text">读取字段信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑文档内容（覆盖和添加）"><span class="toc-text">编辑文档内容（覆盖和添加）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#效果图"><span class="toc-text">效果图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#原始内容"><span class="toc-text">原始内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输出内容"><span class="toc-text">输出内容</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4"><span class="toc-text">操作步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4%E4%B8%80%EF%BC%9A%E5%BC%95%E7%94%A8%E7%9B%B8%E5%85%B3%E7%9A%84POI%E5%BA%93"><span class="toc-text">步骤一：引用相关的POI库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E5%BC%95%E7%94%A81-%E7%94%9F%E6%88%90app%E6%8F%90%E7%A4%BA%E7%B1%BB%E9%87%8D%E5%A4%8D"><span class="toc-text">错误引用1-生成app提示类重复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E5%BC%95%E7%94%A82-%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87%E6%97%B6doc%E9%94%99%E8%AF%AF"><span class="toc-text">错误引用2-添加图片时doc错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E7%A1%AE%E5%BC%95%E7%94%A8-%E6%B7%B7%E5%90%88%E7%89%88%E6%9C%AC%E5%8A%A0%E8%BD%BD"><span class="toc-text">正确引用-混合版本加载</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4%E4%BA%8C%EF%BC%9A%E5%88%9B%E5%BB%BAPOI%E5%AF%B9%E5%BA%94%E7%9A%84Document%E5%AF%B9%E8%B1%A1"><span class="toc-text">步骤二：创建POI对应的Document对象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4%E4%B8%89%EF%BC%9A%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-text">步骤三：文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E4%B8%BB%E8%A6%81%E4%BF%A1%E6%81%AF"><span class="toc-text">获取主要信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%E5%AD%97%E6%AE%B5%E4%BF%A1%E6%81%AF"><span class="toc-text">读取字段信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E6%96%87%E6%A1%A3%E5%86%85%E5%AE%B9%EF%BC%88%E8%A6%86%E7%9B%96%E5%92%8C%E6%B7%BB%E5%8A%A0%EF%BC%89"><span class="toc-text">编辑文档内容（覆盖和添加）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%88%E6%9E%9C%E5%9B%BE"><span class="toc-text">效果图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8B%E5%86%85%E5%AE%B9"><span class="toc-text">原始内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E5%86%85%E5%AE%B9"><span class="toc-text">输出内容</span></a></li></ol></li></ol>
         
     </div>
 </aside>
@@ -388,6 +429,8 @@ var _hmt = _hmt || [];
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

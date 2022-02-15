@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,20 +19,20 @@
     <link rel="dns-prefetch" href="https://rookielord.github.io">
     <!--SEO-->
 
-<meta name="keywords" content="kotlin,arouter">
+<meta name="keywords" content="kotlin,arouter" />
 
 
 <meta name="description" content="使用场景
 为了软件间的解耦操作，确保模块之间Activity的相互跳转不受影响。故引用阿里巴巴的Arouter。但官网上还没有针对Kotlin的集成说明，故在此记录下来
 
 如何使用
-gradle...">
+gradle..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -49,9 +49,11 @@ gradle...">
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 
 <script>
@@ -68,7 +70,7 @@ var _hmt = _hmt || [];
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 6.0.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -78,10 +80,11 @@ var _hmt = _hmt || [];
 <div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
 <![endif]-->
 <body>
-    <header class="main-header" style="background-image:url(
-    http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="LJJ">
+        <a class="header-avatar" href="/" title='LJJ'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -153,7 +156,7 @@ var _hmt = _hmt || [];
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a class="category-link" href="/categories/第三方控件/">第三方控件</a>
+        <a class="category-link" href="/categories/%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%A7%E4%BB%B6/">第三方控件</a>
     </span>
     
     
@@ -161,7 +164,7 @@ var _hmt = _hmt || [];
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/arouter/">arouter</a> <a class="tag-link" href="/tags/kotlin/">kotlin</a>
+            <a class="tag-none-link" href="/tags/arouter/" rel="tag">arouter</a> <a class="tag-none-link" href="/tags/kotlin/" rel="tag">kotlin</a>
             
         </span>
     </span>
@@ -178,6 +181,12 @@ var _hmt = _hmt || [];
 </div>
         
         
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                307</strong>
+            天之前发表，文中内容可能已经过时。
+        </p>
+        
     </div>
     
     <div class="post-body post-content">
@@ -192,23 +201,30 @@ var _hmt = _hmt || [];
 </ol>
 <h2 id="1-gradle配置"><a href="#1-gradle配置" class="headerlink" title="1. gradle配置"></a>1. <code>gradle</code>配置</h2><p>注意需要在两个地方进行配置</p>
 <p>1.根目录下的<code>build.gradle</code>中配置，在<code>dependencies</code>中增加<code>arouter-register</code>引用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">       classpath &quot;com.alibaba:arouter-register:1.0.2&quot;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">       classpath &quot;com.alibaba:arouter-register:1.0.2&quot;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
 <p>2.在模块所在的<code>build.gradle</code>中添加引用及编译配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">plugins &#123;</span><br><span class="line">//    1.增加kotlin-kapt引用</span><br><span class="line">    id &apos;kotlin-kapt&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line"></span><br><span class="line">//  2.增加Arouter编译配置，注意顺序。此处应该在android&#123;&#125;中</span><br><span class="line">    kapt &#123;</span><br><span class="line">        arguments &#123;</span><br><span class="line">            arg(&quot;AROUTER_MODULE_NAME&quot;, project.getName())</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line"></span><br><span class="line">// 3. 添加gradle引用</span><br><span class="line">    implementation &apos;com.alibaba:arouter-api:1.5.1&apos;</span><br><span class="line">    kapt &quot;com.alibaba:arouter-compiler:1.5.1&quot;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">plugins &#123;</span><br><span class="line">//    1.增加kotlin-kapt引用</span><br><span class="line">    id &#x27;kotlin-kapt&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line"></span><br><span class="line">//  2.增加Arouter编译配置，注意顺序。此处应该在android&#123;&#125;中</span><br><span class="line">    kapt &#123;</span><br><span class="line">        arguments &#123;</span><br><span class="line">            arg(&quot;AROUTER_MODULE_NAME&quot;, project.getName())</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line"></span><br><span class="line">// 3. 添加gradle引用</span><br><span class="line">    implementation &#x27;com.alibaba:arouter-api:1.5.1&#x27;</span><br><span class="line">    kapt &quot;com.alibaba:arouter-compiler:1.5.1&quot;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>注意：此处的与官网教程不一样。官网的配置是针对<code>java</code>的，所以我没有使用<br><code>javaCompileOptions</code>和<code>annotationProcessor&#39;com.alibaba:arouter-compiler:1.5.1&#39;</code>这两个配置对<code>kotlin</code>不生效。</p>
 <h2 id="2-目录配置，常量类配置"><a href="#2-目录配置，常量类配置" class="headerlink" title="2. 目录配置，常量类配置"></a>2. 目录配置，常量类配置</h2><p>新建一个<code>ui</code>包用于存放需要跳转的<code>Activity</code>，随后新建一个<code>Constant</code>的<code>Object</code>文件。添加<code>Activity</code>的常量资源</p>
-<p><strong>常量类</strong><code>Constants</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">object Constants &#123;</span><br><span class="line">    object Activitys&#123;</span><br><span class="line">        const val RECYCLELIST_ACTIVITY = &quot;/ui/RecycleListActivity&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>目录结构</strong><br><img src="./2021-04-26_191626.png" alt=""></p>
-<h2 id="3-在Application中进行Arouter初始化"><a href="#3-在Application中进行Arouter初始化" class="headerlink" title="3. 在Application中进行Arouter初始化"></a>3. 在<code>Application</code>中进行<code>Arouter</code>初始化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class App : Application() &#123;</span><br><span class="line">    override fun onCreate() &#123;</span><br><span class="line">        super.onCreate()</span><br><span class="line">        if (BuildConfig.DEBUG)&#123;</span><br><span class="line">            ARouter.openLog()</span><br><span class="line">            ARouter.openDebug()</span><br><span class="line">        &#125;</span><br><span class="line">        ARouter.init(this)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    override fun onTerminate() &#123;</span><br><span class="line">        super.onTerminate()</span><br><span class="line">        ARouter.getInstance().destroy()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><font color="red"><strong>注意:</strong></font>此处有两个小坑。</p>
+<p><strong>常量类</strong><code>Constants</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">object Constants &#123;</span><br><span class="line">    object Activitys&#123;</span><br><span class="line">        const val RECYCLELIST_ACTIVITY = &quot;/ui/RecycleListActivity&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>目录结构</strong><br><img src="/./2021-04-26_191626.png"></p>
+<h2 id="3-在Application中进行Arouter初始化"><a href="#3-在Application中进行Arouter初始化" class="headerlink" title="3. 在Application中进行Arouter初始化"></a>3. 在<code>Application</code>中进行<code>Arouter</code>初始化</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class App : Application() &#123;</span><br><span class="line">    override fun onCreate() &#123;</span><br><span class="line">        super.onCreate()</span><br><span class="line">        if (BuildConfig.DEBUG)&#123;</span><br><span class="line">            ARouter.openLog()</span><br><span class="line">            ARouter.openDebug()</span><br><span class="line">        &#125;</span><br><span class="line">        ARouter.init(this)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    override fun onTerminate() &#123;</span><br><span class="line">        super.onTerminate()</span><br><span class="line">        ARouter.getInstance().destroy()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>**<font color='red'>注意:</font>**此处有两个小坑。</p>
 <ol>
 <li>重写的<code>APP</code>类需要在<code>Manifest</code>中进行添加，否则不会执行。（只需要在<code>application</code>节点中添加<code>name</code>并指向这个类即可)</li>
-<li>注意<code>BuildConfig</code>这个类是引用谁的，因为<code>Arouter</code>本身也有<code>BuildConfig</code>。博主引用错了后，一直无法跳转。而且也一直没有报错，坑了很久</li>
+<li>注意<code>BuildConfig</code>这个类是引用谁的，因为<code>Arouter</code>本身也有<code>BuildConfig</code>。**此处需要引用<code>Anroid</code>的<code>BuildConfig</code>**。博主引用错了后，一直无法跳转。而且也一直没有报错，坑了很久</li>
 </ol>
 <h2 id="4-Activity的配置"><a href="#4-Activity的配置" class="headerlink" title="4. Activity的配置"></a>4. <code>Activity</code>的配置</h2><p>以上工作做完后，就可以在需要跳转的<code>Activity</code>进行配置了。</p>
-<p>跳转到的<code>Activity</code>，增加<code>@Route</code>注解<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Route(path = Constants.Activitys.RECYCLELIST_ACTIVITY)</span><br><span class="line">class RecycleListActivity : AppCompatActivity() &#123;</span><br><span class="line">    override fun onCreate(savedInstanceState: Bundle?) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.activity_recycle_list)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>需要进行跳转的<code>Activity</code>，调用<code>Arouter</code>单例进行跳转<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mBtnList.setOnClickListener &#123;</span><br><span class="line">           ARouter.getInstance().build(Constants.Activitys.RECYCLELIST_ACTIVITY).navigation()</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure></p>
+<p>跳转到的<code>Activity</code>，增加<code>@Route</code>注解</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Route(path = Constants.Activitys.RECYCLELIST_ACTIVITY)</span><br><span class="line">class RecycleListActivity : AppCompatActivity() &#123;</span><br><span class="line">    override fun onCreate(savedInstanceState: Bundle?) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.activity_recycle_list)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
+<p>需要进行跳转的<code>Activity</code>，调用<code>Arouter</code>单例进行跳转</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mBtnList.setOnClickListener &#123;</span><br><span class="line">           ARouter.getInstance().build(Constants.Activitys.RECYCLELIST_ACTIVITY).navigation()</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
     </div>
     
     <div class="post-footer">
@@ -226,8 +242,14 @@ var _hmt = _hmt || [];
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
+    <a href="/2021/07/31/cplusplus0731/" class="pre-post btn btn-default" title='C++学习日志01'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            C++学习日志01</span>
+    </a>
     
-    <a href="/2021/04/09/github登录异常/" class="next-post btn btn-default" title="github登录异常">
+    
+    <a href="/2021/04/09/github%E7%99%BB%E5%BD%95%E5%BC%82%E5%B8%B8/" class="next-post btn btn-default" title='github登录异常'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             github登录异常</span><i class="fa fa-angle-right fa-fw"></i>
@@ -270,7 +292,7 @@ var _hmt = _hmt || [];
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用场景"><span class="toc-text">使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何使用"><span class="toc-text">如何使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-gradle配置"><span class="toc-text">1. gradle配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-目录配置，常量类配置"><span class="toc-text">2. 目录配置，常量类配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-在Application中进行Arouter初始化"><span class="toc-text">3. 在Application中进行Arouter初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Activity的配置"><span class="toc-text">4. Activity的配置</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8"><span class="toc-text">如何使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-gradle%E9%85%8D%E7%BD%AE"><span class="toc-text">1. gradle配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE%EF%BC%8C%E5%B8%B8%E9%87%8F%E7%B1%BB%E9%85%8D%E7%BD%AE"><span class="toc-text">2. 目录配置，常量类配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%9C%A8Application%E4%B8%AD%E8%BF%9B%E8%A1%8CArouter%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">3. 在Application中进行Arouter初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Activity%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-text">4. Activity的配置</span></a></li></ol>
         
     </div>
 </aside>
@@ -313,6 +335,8 @@ var _hmt = _hmt || [];
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,20 +19,20 @@
     <link rel="dns-prefetch" href="https://rookielord.github.io">
     <!--SEO-->
 
-<meta name="keywords" content="cmake,jni">
+<meta name="keywords" content="cmake,jni" />
 
 
 <meta name="description" content="本节内容主要是如何在C++层处理，并在java层返回对应的对象和数据。
 应用场景
 c++函数中有多个返回
 c++函数中有多个参数，java端为了简化操作，直接传入一个包含多个参数的对象
-c++端...">
+c++端..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -49,9 +49,11 @@ c++端...">
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 
 <script>
@@ -68,7 +70,7 @@ var _hmt = _hmt || [];
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 6.0.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -78,10 +80,11 @@ var _hmt = _hmt || [];
 <div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
 <![endif]-->
 <body>
-    <header class="main-header" style="background-image:url(
-    http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="LJJ">
+        <a class="header-avatar" href="/" title='LJJ'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -153,7 +156,7 @@ var _hmt = _hmt || [];
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a class="category-link" href="/categories/代码/">代码</a>
+        <a class="category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
     </span>
     
     
@@ -161,7 +164,7 @@ var _hmt = _hmt || [];
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/cmake/">cmake</a> <a class="tag-link" href="/tags/jni/">jni</a>
+            <a class="tag-none-link" href="/tags/cmake/" rel="tag">cmake</a> <a class="tag-none-link" href="/tags/jni/" rel="tag">jni</a>
             
         </span>
     </span>
@@ -180,7 +183,7 @@ var _hmt = _hmt || [];
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                968</strong>
+                1263</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -220,29 +223,36 @@ char         |   C
 void         |   V  
 short        |   S  
 String       |   java/lang/String  
-</code></pre><h1 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h1><h2 id="1-调用Java中的静态方法"><a href="#1-调用Java中的静态方法" class="headerlink" title="1)调用Java中的静态方法"></a>1)调用Java中的静态方法</h2><p>1.新建名叫LogUtils的类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">package com.minicoder.coder;</span><br><span class="line"></span><br><span class="line">import android.util.Log;</span><br><span class="line"></span><br><span class="line">public class LogUtils &#123;</span><br><span class="line">    private static final String TAG = &quot;LJJ&quot;;</span><br><span class="line">    </span><br><span class="line">    public static void D(String message) &#123;</span><br><span class="line">        Log.d(TAG, message);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h1 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h1><h2 id="1-调用Java中的静态方法"><a href="#1-调用Java中的静态方法" class="headerlink" title="1)调用Java中的静态方法"></a>1)调用Java中的静态方法</h2><p>1.新建名叫LogUtils的类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">package com.minicoder.coder;</span><br><span class="line"></span><br><span class="line">import android.util.Log;</span><br><span class="line"></span><br><span class="line">public class LogUtils &#123;</span><br><span class="line">    private static final String TAG = &quot;LJJ&quot;;</span><br><span class="line">    </span><br><span class="line">    public static void D(String message) &#123;</span><br><span class="line">        Log.d(TAG, message);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <hr>
 <p>接下来需要在对应的native方法的c++找到该类，并调用该方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 1.找到类</span><br><span class="line">   jclass logclz = env-&gt;FindClass(&quot;com/minicoder/coder/LogUtils&quot;);</span><br><span class="line">   // 2.找方法</span><br><span class="line">   jmethodID mtd_d = env-&gt;GetStaticMethodID(logclz, &quot;D&quot;, &quot;(Ljava/lang/String;)V&quot;);</span><br><span class="line">   jstring data = env-&gt;NewStringUTF(&quot;从jni中调用的日志&quot;);</span><br><span class="line">   // 3.调用java层的静态方法</span><br><span class="line">   env-&gt;CallStaticVoidMethod(logclz, mtd_d, data);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 1.找到类</span><br><span class="line">   jclass logclz = env-&gt;FindClass(&quot;com/minicoder/coder/LogUtils&quot;);</span><br><span class="line">   // 2.找方法</span><br><span class="line">   jmethodID mtd_d = env-&gt;GetStaticMethodID(logclz, &quot;D&quot;, &quot;(Ljava/lang/String;)V&quot;);</span><br><span class="line">   jstring data = env-&gt;NewStringUTF(&quot;从jni中调用的日志&quot;);</span><br><span class="line">   // 3.调用java层的静态方法</span><br><span class="line">   env-&gt;CallStaticVoidMethod(logclz, mtd_d, data);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <hr>
 <p>其中方法的签名和类型，就是上面列表中对应的具体类型，其实我本人是不建议大家去记忆的。我是直接这样处理的</p>
-<p>1.将原有方法改为native<br><img src="https://i.imgur.com/ByrEuJW.png" alt=""></p>
-<p>2.通过之前的javah方法编译后得到的<br><img src="https://i.imgur.com/Heb9qTu.png" alt=""></p>
+<p>1.将原有方法改为native<br><img src="https://i.imgur.com/ByrEuJW.png"></p>
+<p>2.通过之前的javah方法编译后得到的<br><img src="https://i.imgur.com/Heb9qTu.png"></p>
 <p>找方法时传入的三个值，分别对应1.找到的Jclass对象2.需要调用的方法名3.参数签名，随后就可以在C++层调用JAVA层的静态方法了。</p>
 <h2 id="2-调用实例方法"><a href="#2-调用实例方法" class="headerlink" title="2)调用实例方法"></a>2)调用实例方法</h2><p>与调用静态方法，类似只不过如果该对象没有通过方法传入，则需要在C++里面创建实例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> * Class:     com_minicoder_coder_TestUtils</span><br><span class="line"> * Method:    callInatanceMethod</span><br><span class="line"> * Signature: (Ljava/lang/String;)V</span><br><span class="line"> */</span><br><span class="line">JNIEXPORT void JNICALL Java_com_minicoder_coder_TestUtils_callInatanceMethod</span><br><span class="line">        (JNIEnv *env, jclass clazz, jstring message) &#123;</span><br><span class="line">    // 1.找到类</span><br><span class="line">    jclass logclz = env-&gt;FindClass(&quot;com/minicoder/coder/LogUtils&quot;);</span><br><span class="line">    // 2.找构造方法id，用于初始化实例</span><br><span class="line">    jmethodID construct = env-&gt;GetMethodID(logclz, &quot;&lt;init&gt;&quot;, &quot;()V&quot;);</span><br><span class="line"></span><br><span class="line">    jmethodID i = env-&gt;GetMethodID(logclz, &quot;I&quot;, &quot;(Ljava/lang/String;)V&quot;);</span><br><span class="line">    // 3.实例化对象</span><br><span class="line">    jobject testObj = env-&gt;NewObject(logclz, construct, NULL);</span><br><span class="line"></span><br><span class="line">    jstring data = env-&gt;NewStringUTF(&quot;实例方法打印日志&quot;);</span><br><span class="line"></span><br><span class="line">    // 4.调用实例化对象的方法</span><br><span class="line">    env-&gt;CallVoidMethod(testObj, i, data);</span><br><span class="line"></span><br><span class="line">    // 5.去掉类引用</span><br><span class="line">    // 去掉字符串引用</span><br><span class="line">    env-&gt;DeleteLocalRef(data);</span><br><span class="line">    // 去掉找到的类引用</span><br><span class="line">    env-&gt;DeleteLocalRef(logclz);</span><br><span class="line">    // 去掉实例化对象</span><br><span class="line">    env-&gt;DeleteLocalRef(testObj);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> * Class:     com_minicoder_coder_TestUtils</span><br><span class="line"> * Method:    callInatanceMethod</span><br><span class="line"> * Signature: (Ljava/lang/String;)V</span><br><span class="line"> */</span><br><span class="line">JNIEXPORT void JNICALL Java_com_minicoder_coder_TestUtils_callInatanceMethod</span><br><span class="line">        (JNIEnv *env, jclass clazz, jstring message) &#123;</span><br><span class="line">    // 1.找到类</span><br><span class="line">    jclass logclz = env-&gt;FindClass(&quot;com/minicoder/coder/LogUtils&quot;);</span><br><span class="line">    // 2.找构造方法id，用于初始化实例</span><br><span class="line">    jmethodID construct = env-&gt;GetMethodID(logclz, &quot;&lt;init&gt;&quot;, &quot;()V&quot;);</span><br><span class="line"></span><br><span class="line">    jmethodID i = env-&gt;GetMethodID(logclz, &quot;I&quot;, &quot;(Ljava/lang/String;)V&quot;);</span><br><span class="line">    // 3.实例化对象</span><br><span class="line">    jobject testObj = env-&gt;NewObject(logclz, construct, NULL);</span><br><span class="line"></span><br><span class="line">    jstring data = env-&gt;NewStringUTF(&quot;实例方法打印日志&quot;);</span><br><span class="line"></span><br><span class="line">    // 4.调用实例化对象的方法</span><br><span class="line">    env-&gt;CallVoidMethod(testObj, i, data);</span><br><span class="line"></span><br><span class="line">    // 5.去掉类引用</span><br><span class="line">    // 去掉字符串引用</span><br><span class="line">    env-&gt;DeleteLocalRef(data);</span><br><span class="line">    // 去掉找到的类引用</span><br><span class="line">    env-&gt;DeleteLocalRef(logclz);</span><br><span class="line">    // 去掉实例化对象</span><br><span class="line">    env-&gt;DeleteLocalRef(testObj);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="3-调用传入实例的字段和方法"><a href="#3-调用传入实例的字段和方法" class="headerlink" title="3)调用传入实例的字段和方法"></a>3)调用传入实例的字段和方法</h2><p>在通过javah编译后，其实所有需要的相关信息都获取了。例如此处方法传入的两个Person对象（因为返回值为bool，还需要一个结果对象）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 传入一个人对象，进行修改后再</span><br><span class="line"> * @param person 传入的人对象</span><br><span class="line"> * @param change 传出改变后的人</span><br><span class="line"> * @return 是否改造成功</span><br><span class="line"> */</span><br><span class="line">public static native boolean changePerson(Person person,Person change);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 传入一个人对象，进行修改后再</span><br><span class="line"> * @param person 传入的人对象</span><br><span class="line"> * @param change 传出改变后的人</span><br><span class="line"> * @return 是否改造成功</span><br><span class="line"> */</span><br><span class="line">public static native boolean changePerson(Person person,Person change);</span><br></pre></td></tr></table></figure>
+
 <p>对应编译出来的c++的.h文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> * Class:     com_minicoder_coder_TestUtils</span><br><span class="line"> * Method:    changePerson</span><br><span class="line"> * Signature: (Lcom/minicoder/coder/Person;Lcom/minicoder/coder/Person;)Z</span><br><span class="line"> */</span><br><span class="line">JNIEXPORT jboolean JNICALL Java_com_minicoder_coder_TestUtils_changePerson</span><br><span class="line">  (JNIEnv *, jclass, jobject, jobject);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> * Class:     com_minicoder_coder_TestUtils</span><br><span class="line"> * Method:    changePerson</span><br><span class="line"> * Signature: (Lcom/minicoder/coder/Person;Lcom/minicoder/coder/Person;)Z</span><br><span class="line"> */</span><br><span class="line">JNIEXPORT jboolean JNICALL Java_com_minicoder_coder_TestUtils_changePerson</span><br><span class="line">  (JNIEnv *, jclass, jobject, jobject);</span><br></pre></td></tr></table></figure>
+
 <p>随后新建.cpp文件，老规矩三个步骤</p>
 <ol>
 <li>获取类</li>
 <li>找到字段</li>
 <li>获取值</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> * Class:     com_minicoder_coder_TestUtils</span><br><span class="line"> * Method:    changePerson</span><br><span class="line"> * Signature: (Lcom/minicoder/coder/Person;Lcom/minicoder/coder/Person;)Z</span><br><span class="line"> */</span><br><span class="line">JNIEXPORT jboolean JNICALL Java_com_minicoder_coder_TestUtils_changePerson</span><br><span class="line">        (JNIEnv *env, jclass clazz, jobject person, jobject res) &#123;</span><br><span class="line">   </span><br><span class="line">    //1.找到对应的java类</span><br><span class="line">    jclass clz = env-&gt;FindClass(&quot;com/minicoder/coder/Person&quot;);</span><br><span class="line">    //2. 找到对应的字段</span><br><span class="line">    jfieldID jname = env-&gt;GetFieldID(clz, &quot;name&quot;, &quot;Ljava/lang/String;&quot;);</span><br><span class="line">    jfieldID jage = env-&gt;GetFieldID(clz, &quot;age&quot;, &quot;I&quot;);</span><br><span class="line">    jfieldID jgender = env-&gt;GetFieldID(clz, &quot;gender&quot;, &quot;I&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    // 3.获取数据</span><br><span class="line">    jstring pring = (jstring) env-&gt;GetObjectField(person, jname);</span><br><span class="line">    int age = env-&gt;GetIntField(person, jage);</span><br><span class="line">    int gender = env-&gt;GetIntField(person, jgender);</span><br><span class="line"></span><br><span class="line">    // 4.数据改造</span><br><span class="line">    // 4.1字符串拼接</span><br><span class="line">    jstring nameTemp = env-&gt;NewStringUTF(&quot;红发&quot;);</span><br><span class="line">    // 4.2 年龄增加</span><br><span class="line">    int ageTemp = age + 10;</span><br><span class="line">    // 4.3 性别改变</span><br><span class="line">    int genderTemp = gender + 3;</span><br><span class="line"></span><br><span class="line">    //5.赋值到结果对象</span><br><span class="line"></span><br><span class="line">    env-&gt;SetIntField(res, jage, ageTemp);</span><br><span class="line">    env-&gt;SetIntField(res, jgender, genderTemp);</span><br><span class="line">    env-&gt;SetObjectField(res, jname, nameTemp);</span><br><span class="line"></span><br><span class="line">    // 5.1干掉本地引用</span><br><span class="line">    // 去掉类引用</span><br><span class="line">    env-&gt;DeleteLocalRef(clz);</span><br><span class="line">    // 去掉字符串引用</span><br><span class="line">    env-&gt;DeleteLocalRef(data);</span><br><span class="line">    env-&gt;DeleteLocalRef(nameTemp);</span><br><span class="line">    //6.返回结果值</span><br><span class="line">    bool end = false;</span><br><span class="line"></span><br><span class="line">    return end;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> * Class:     com_minicoder_coder_TestUtils</span><br><span class="line"> * Method:    changePerson</span><br><span class="line"> * Signature: (Lcom/minicoder/coder/Person;Lcom/minicoder/coder/Person;)Z</span><br><span class="line"> */</span><br><span class="line">JNIEXPORT jboolean JNICALL Java_com_minicoder_coder_TestUtils_changePerson</span><br><span class="line">        (JNIEnv *env, jclass clazz, jobject person, jobject res) &#123;</span><br><span class="line">   </span><br><span class="line">    //1.找到对应的java类</span><br><span class="line">    jclass clz = env-&gt;FindClass(&quot;com/minicoder/coder/Person&quot;);</span><br><span class="line">    //2. 找到对应的字段</span><br><span class="line">    jfieldID jname = env-&gt;GetFieldID(clz, &quot;name&quot;, &quot;Ljava/lang/String;&quot;);</span><br><span class="line">    jfieldID jage = env-&gt;GetFieldID(clz, &quot;age&quot;, &quot;I&quot;);</span><br><span class="line">    jfieldID jgender = env-&gt;GetFieldID(clz, &quot;gender&quot;, &quot;I&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    // 3.获取数据</span><br><span class="line">    jstring pring = (jstring) env-&gt;GetObjectField(person, jname);</span><br><span class="line">    int age = env-&gt;GetIntField(person, jage);</span><br><span class="line">    int gender = env-&gt;GetIntField(person, jgender);</span><br><span class="line"></span><br><span class="line">    // 4.数据改造</span><br><span class="line">    // 4.1字符串拼接</span><br><span class="line">    jstring nameTemp = env-&gt;NewStringUTF(&quot;红发&quot;);</span><br><span class="line">    // 4.2 年龄增加</span><br><span class="line">    int ageTemp = age + 10;</span><br><span class="line">    // 4.3 性别改变</span><br><span class="line">    int genderTemp = gender + 3;</span><br><span class="line"></span><br><span class="line">    //5.赋值到结果对象</span><br><span class="line"></span><br><span class="line">    env-&gt;SetIntField(res, jage, ageTemp);</span><br><span class="line">    env-&gt;SetIntField(res, jgender, genderTemp);</span><br><span class="line">    env-&gt;SetObjectField(res, jname, nameTemp);</span><br><span class="line"></span><br><span class="line">    // 5.1干掉本地引用</span><br><span class="line">    // 去掉类引用</span><br><span class="line">    env-&gt;DeleteLocalRef(clz);</span><br><span class="line">    // 去掉字符串引用</span><br><span class="line">    env-&gt;DeleteLocalRef(data);</span><br><span class="line">    env-&gt;DeleteLocalRef(nameTemp);</span><br><span class="line">    //6.返回结果值</span><br><span class="line">    bool end = false;</span><br><span class="line"></span><br><span class="line">    return end;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
     
@@ -261,14 +271,14 @@ String       |   java/lang/String
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2019/09/28/ConstrantLayout/" class="pre-post btn btn-default" title="ConstrantLayout布局相关">
+    <a href="/2019/09/28/ConstrantLayout/" class="pre-post btn btn-default" title='ConstrantLayout布局相关'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             ConstrantLayout布局相关</span>
     </a>
     
     
-    <a href="/2018/07/28/cmake2/" class="next-post btn btn-default" title="从零开始使用Cmake进行jni编程教程(二)：打包so和jar包">
+    <a href="/2018/07/28/cmake2/" class="next-post btn btn-default" title='从零开始使用Cmake进行jni编程教程(二)：打包so和jar包'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             从零开始使用Cmake进行jni编程教程(二)：打包so和jar包</span><i class="fa fa-angle-right fa-fw"></i>
@@ -311,7 +321,7 @@ String       |   java/lang/String
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#应用场景"><span class="toc-text">应用场景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#具体逻辑"><span class="toc-text">具体逻辑</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#操作方法"><span class="toc-text">操作方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本类型"><span class="toc-text">基本类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#具体实现"><span class="toc-text">具体实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-调用Java中的静态方法"><span class="toc-text">1)调用Java中的静态方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-调用实例方法"><span class="toc-text">2)调用实例方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-调用传入实例的字段和方法"><span class="toc-text">3)调用传入实例的字段和方法</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">应用场景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E9%80%BB%E8%BE%91"><span class="toc-text">具体逻辑</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95"><span class="toc-text">操作方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="toc-text">基本类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><span class="toc-text">具体实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%B0%83%E7%94%A8Java%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="toc-text">1)调用Java中的静态方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%B0%83%E7%94%A8%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95"><span class="toc-text">2)调用实例方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%B0%83%E7%94%A8%E4%BC%A0%E5%85%A5%E5%AE%9E%E4%BE%8B%E7%9A%84%E5%AD%97%E6%AE%B5%E5%92%8C%E6%96%B9%E6%B3%95"><span class="toc-text">3)调用传入实例的字段和方法</span></a></li></ol></li></ol>
         
     </div>
 </aside>
@@ -354,6 +364,8 @@ String       |   java/lang/String
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

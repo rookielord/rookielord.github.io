@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,19 +19,19 @@
     <link rel="dns-prefetch" href="https://rookielord.github.io">
     <!--SEO-->
 
-<meta name="keywords" content="kotlin,Android">
+<meta name="keywords" content="kotlin,Android" />
 
 
 <meta name="description" content="如何添加匿名类
 使用object关键字声明接口，随后重写其的方法。
 
-1）设计接口123interface OnItemClickListener&lt;T&gt; &#123;    fun ...">
+1）设计接口123interface OnItemClickListener&lt;T&gt; &#123;    fun ..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -48,9 +48,11 @@
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 
 <script>
@@ -67,7 +69,7 @@ var _hmt = _hmt || [];
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 6.0.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -77,10 +79,11 @@ var _hmt = _hmt || [];
 <div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
 <![endif]-->
 <body>
-    <header class="main-header" style="background-image:url(
-    http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="LJJ">
+        <a class="header-avatar" href="/" title='LJJ'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -152,7 +155,7 @@ var _hmt = _hmt || [];
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a class="category-link" href="/categories/技巧/">技巧</a>
+        <a class="category-link" href="/categories/%E6%8A%80%E5%B7%A7/">技巧</a>
     </span>
     
     
@@ -160,7 +163,7 @@ var _hmt = _hmt || [];
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/Android/">Android</a> <a class="tag-link" href="/tags/kotlin/">kotlin</a>
+            <a class="tag-none-link" href="/tags/Android/" rel="tag">Android</a> <a class="tag-none-link" href="/tags/kotlin/" rel="tag">kotlin</a>
             
         </span>
     </span>
@@ -177,15 +180,24 @@ var _hmt = _hmt || [];
 </div>
         
         
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                314</strong>
+            天之前发表，文中内容可能已经过时。
+        </p>
+        
     </div>
     
     <div class="post-body post-content">
         <h2 id="如何添加匿名类"><a href="#如何添加匿名类" class="headerlink" title="如何添加匿名类"></a>如何添加匿名类</h2><blockquote>
 <p>使用<code>object</code>关键字声明接口，随后重写其的方法。</p>
 </blockquote>
-<h3 id="1）设计接口"><a href="#1）设计接口" class="headerlink" title="1）设计接口"></a>1）设计接口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">interface OnItemClickListener&lt;T&gt; &#123;</span><br><span class="line">    fun onItemChoose(pos: Int, value: T)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2）添加接口的方法"><a href="#2）添加接口的方法" class="headerlink" title="2）添加接口的方法"></a>2）添加接口的方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fun setListener(onItemClickListener: OnItemClickListener&lt;T&gt;) &#123;</span><br><span class="line">     listener = onItemClickListener</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3）如何添加"><a href="#3）如何添加" class="headerlink" title="3）如何添加"></a>3）如何添加</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dialog.setListener(object : OnItemClickListener&lt;String&gt; &#123;</span><br><span class="line">               override fun onItemChoose(pos: Int, value: String) &#123;</span><br><span class="line">                   dialog.dismiss()</span><br><span class="line">                   Toast.makeText(applicationContext, value, Toast.LENGTH_SHORT).show()</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="1）设计接口"><a href="#1）设计接口" class="headerlink" title="1）设计接口"></a>1）设计接口</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">interface OnItemClickListener&lt;T&gt; &#123;</span><br><span class="line">    fun onItemChoose(pos: Int, value: T)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2）添加接口的方法"><a href="#2）添加接口的方法" class="headerlink" title="2）添加接口的方法"></a>2）添加接口的方法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fun setListener(onItemClickListener: OnItemClickListener&lt;T&gt;) &#123;</span><br><span class="line">     listener = onItemClickListener</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3）如何添加"><a href="#3）如何添加" class="headerlink" title="3）如何添加"></a>3）如何添加</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dialog.setListener(object : OnItemClickListener&lt;String&gt; &#123;</span><br><span class="line">               override fun onItemChoose(pos: Int, value: String) &#123;</span><br><span class="line">                   dialog.dismiss()</span><br><span class="line">                   Toast.makeText(applicationContext, value, Toast.LENGTH_SHORT).show()</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;)</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>这里的<code>dialog</code>对象为拥有<code>setListener</code>方法的实例。</p>
 </blockquote>
@@ -207,14 +219,14 @@ var _hmt = _hmt || [];
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2021/04/09/github登录异常/" class="pre-post btn btn-default" title="github登录异常">
+    <a href="/2021/04/09/github%E7%99%BB%E5%BD%95%E5%BC%82%E5%B8%B8/" class="pre-post btn btn-default" title='github登录异常'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             github登录异常</span>
     </a>
     
     
-    <a href="/2021/03/30/word-poi/" class="next-post btn btn-default" title="使用POI进行Word操作（一）">
+    <a href="/2021/03/30/word-poi/" class="next-post btn btn-default" title='使用POI进行Word操作（一）'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             使用POI进行Word操作（一）</span><i class="fa fa-angle-right fa-fw"></i>
@@ -257,7 +269,7 @@ var _hmt = _hmt || [];
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何添加匿名类"><span class="toc-text">如何添加匿名类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1）设计接口"><span class="toc-text">1）设计接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2）添加接口的方法"><span class="toc-text">2）添加接口的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3）如何添加"><span class="toc-text">3）如何添加</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E5%8C%BF%E5%90%8D%E7%B1%BB"><span class="toc-text">如何添加匿名类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%89%E8%AE%BE%E8%AE%A1%E6%8E%A5%E5%8F%A3"><span class="toc-text">1）设计接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%89%E6%B7%BB%E5%8A%A0%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">2）添加接口的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%EF%BC%89%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0"><span class="toc-text">3）如何添加</span></a></li></ol></li></ol>
         
     </div>
 </aside>
@@ -300,6 +312,8 @@ var _hmt = _hmt || [];
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

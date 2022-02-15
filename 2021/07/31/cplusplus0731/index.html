@@ -19,12 +19,10 @@
     <link rel="dns-prefetch" href="https://rookielord.github.io">
     <!--SEO-->
 
-<meta name="keywords" content="github" />
+<meta name="keywords" content="c++" />
 
 
-<meta name="description" content="github上不去，大家都知道这是咋回事，本博主也是查看了网上各位大神的方法，按照操作后可以能够访问，故在此分享给大家。
-
-无法链接原因：DNS污染，幸好不是背墙。程序员捣鼓一下还能上，这样应该..." />
+<meta name="description" content="自我学习闲杂知识点1.字符信息的拼接，不能像java中String进行声明和拼接，输出时使用std::cout&lt;&lt; &quot;aaa&quot;&lt;&lt;&quot;bbb&..." />
 
 
 <meta name="robots" content="all" />
@@ -35,7 +33,7 @@
 
 <title>
     
-    github登录异常 |
+    C++学习日志01 |
     
     小小代码网
 </title>
@@ -145,16 +143,16 @@ var _hmt = _hmt || [];
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="github登录异常">
+        <h1 id="C++学习日志01">
             
-            github登录异常
+            C++学习日志01
             
         </h1>
         <div class="post-meta">
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a class="category-link" href="/categories/%E6%8A%80%E5%B7%A7/">技巧</a>
+        
     </span>
     
     
@@ -162,7 +160,7 @@ var _hmt = _hmt || [];
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-none-link" href="/tags/github/" rel="tag">github</a>
+            <a class="tag-none-link" href="/tags/c/" rel="tag">c++</a>
             
         </span>
     </span>
@@ -172,42 +170,38 @@ var _hmt = _hmt || [];
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2021/04/09</span>
+            2021/07/31</span>
     </span>
     
     
 </div>
         
         
-        <p class="fa fa-exclamation-triangle warning">
-            本文于<strong>
-                311</strong>
-            天之前发表，文中内容可能已经过时。
-        </p>
-        
     </div>
     
     <div class="post-body post-content">
-        <p><code>github</code>上不去，大家都知道这是咋回事，本博主也是查看了网上各位大神的方法，按照操作后可以能够访问，故在此分享给大家。</p>
+        <h1 id="自我学习闲杂知识点"><a href="#自我学习闲杂知识点" class="headerlink" title="自我学习闲杂知识点"></a>自我学习闲杂知识点</h1><p>1.字符信息的拼接，不能像java中<code>String</code>进行声明和拼接，输出时使用<code>std::cout&lt;&lt; &quot;aaa&quot;&lt;&lt;&quot;bbb&quot;</code>的方式进行<strong>拼接</strong>和<strong>输出</strong>，这两个操作为同时进行</p>
 <blockquote>
-<p>无法链接原因：<strong>DNS污染</strong>，幸好不是背墙。程序员捣鼓一下还能上，这样应该主要是为了过滤小白。</p>
+<p>注意：其中的<code>std</code>可以在文件开头声明<code>using namespace std</code>，随后就可以不用每次写<code>std::</code>了</p>
 </blockquote>
-<p>具体步骤如下：</p>
-<ol>
-<li>登录<code>ping</code>检测网站，查看<code>github</code>被解析的哪个<code>ip</code>能够被访问</li>
-<li>修改本机的<code>host</code>,将对应的<code>DNS</code>解析添加进去</li>
-<li>通过命令行刷新<code>dns</code></li>
-</ol>
-<h2 id="1-登录ping检测网站"><a href="#1-登录ping检测网站" class="headerlink" title="1.登录ping检测网站"></a>1.登录ping检测网站</h2><p>登录<a target="_blank" rel="noopener" href="https://github.com.ipaddress.com/">github检测网站</a>，通过该网站查看对应的<code>github</code>网站被解析正常的ip，将红色框选部分的<code>IP Address</code>给复制下来备用<br><img src="/./2021-04-09_225523.png" alt="查看信息"></p>
-<center>
-登录图片
-</center>
-
-<h2 id="2-将DNS解析添加到host文件中"><a href="#2-将DNS解析添加到host文件中" class="headerlink" title="2.将DNS解析添加到host文件中"></a>2.将DNS解析添加到host文件中</h2><p>host的目录为<code>C:\Windows\System32\drivers\etc</code>下的<code>host</code>文件，将其用文档编译器打开（<strong>注意：需要管理员模式打开，否则编辑后无法保存</strong>)，将之前的ip添加在最后面。<code>ip</code>和<code>github.com</code>需要注意添加<strong>空格</strong><br><img src="/./2021-04-09_230637.png" alt="添加dns解析"></p>
-<h2 id="3-通过命令行刷新dns"><a href="#3-通过命令行刷新dns" class="headerlink" title="3.通过命令行刷新dns"></a>3.通过命令行刷新<code>dns</code></h2><p><code>win</code>+<code>R</code>，输入<code>cmd</code>回车，随后输入命令<code>ipconfig /flushdns</code></p>
-<p><img src="/./2021-04-09_231120.png" alt="刷新DNS"></p>
-<p>完成以上操作就可以访问Github了，以下是登录成功的截图</p>
-<p><img src="/./2021-04-09_231533.png" alt="登录成功"></p>
+<p>2.c++中文件的执行一般分为头文件<code>.h</code>和源文件<code>.cpp</code>。其中<code>.h</code>用于接口的声明，<code>.cpp</code>文件用于具体实现。在VS中两者放在不同的文件夹下。<code>.cpp</code>一般会使用<code>include &quot;xxx.h&quot;</code>的方式加载<code>.h</code></p>
+<blockquote>
+<p>注意：由于c++代码为顺序执行。将所有函数在<code>.h</code>中声明，随后在<code>.cpp</code>中加载，并实现函数具体时。可以不在乎其是否在主函数<code>main</code>前。没有在<code>.h</code>文件声明函数时，则函数必须在主函数<code>main</code>前完成编写</p>
+</blockquote>
+<h1 id="关键类型"><a href="#关键类型" class="headerlink" title="关键类型"></a>关键类型</h1><table>
+<thead>
+<tr>
+<th align="center">关键字</th>
+<th>用处</th>
+<th align="left">列子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">typedef</td>
+<td>用于将一个</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
 
     </div>
     
@@ -226,17 +220,11 @@ var _hmt = _hmt || [];
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2021/04/13/arouter/" class="pre-post btn btn-default" title='Kotlin集成Arouter'>
-        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-        <span class="hidden-xs">
-            Kotlin集成Arouter</span>
-    </a>
     
-    
-    <a href="/2021/04/06/kotlin/" class="next-post btn btn-default" title='kotlin如何创建匿名函数'>
+    <a href="/2021/04/13/arouter/" class="next-post btn btn-default" title='Kotlin集成Arouter'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            kotlin如何创建匿名函数</span><i class="fa fa-angle-right fa-fw"></i>
+            Kotlin集成Arouter</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -276,7 +264,7 @@ var _hmt = _hmt || [];
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%99%BB%E5%BD%95ping%E6%A3%80%E6%B5%8B%E7%BD%91%E7%AB%99"><span class="toc-text">1.登录ping检测网站</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%B0%86DNS%E8%A7%A3%E6%9E%90%E6%B7%BB%E5%8A%A0%E5%88%B0host%E6%96%87%E4%BB%B6%E4%B8%AD"><span class="toc-text">2.将DNS解析添加到host文件中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%88%B7%E6%96%B0dns"><span class="toc-text">3.通过命令行刷新dns</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E6%88%91%E5%AD%A6%E4%B9%A0%E9%97%B2%E6%9D%82%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-text">自我学习闲杂知识点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">关键类型</span></a></li></ol>
         
     </div>
 </aside>
