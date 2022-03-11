@@ -21,11 +21,11 @@
                 </select></td>
         </tr>
         <tr>
-            <td>主机号：</td>
+            <td>主机编号：</td>
             <td><input type="text" id="device"></td>
         </tr>
         <tr>
-            <td>手簿号：</td>
+            <td>手簿编号：</td>
             <td><input type="text" id="phone"></td>
         </tr>
         <tr>
@@ -40,9 +40,9 @@
             <td>严重等级：</td>
             <td>
                 <select id="level">
-                    <option value="严重">严重</option>
-                    <option value="普通">普通</option>
-                    <option value="轻微">轻微</option>
+                    <option value="严重问题">严重问题</option>
+                    <option value="一般问题">一般问题</option>
+                    <option value="建议问题">建议问题</option>
                 </select>
             </td>
         </tr>
@@ -74,7 +74,13 @@
 
         var time = new Date().Format("hh:mm:ss");
 
-        var message = group.value + "+" + device.value + "+" + phone.value + "+" + freq.value + "+" + level.value + "+" + time;
+        var message = "【" + group.value + "】" + "+"
+            + "主机号:" + device.value + "+"
+            + "手簿号:" + phone.value + "+"
+            + freq.value + "+"
+            + level.value + "+"
+            + time + "\r\n"
+            + bug.value;
 
         var result = document.getElementById("text_result");
         result.value = message;
