@@ -15,8 +15,8 @@
     <meta name="browsermode" content="application">
     <meta name="screen-orientation" content="portrait">
     <meta name="theme-version" content="1.2.3">
-    <meta name="root" content="/blog/">
-    <link rel="dns-prefetch" href="http://minicoderx.gitee.io/blog">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://minicoderx.gitee.io">
     <!--SEO-->
 
 <meta name="keywords" content="poi,word" />
@@ -52,9 +52,9 @@
     
 
 
-<link rel="stylesheet" href="/blog/css/bootstrap.min.css?rev=3.3.7.css">
-<link rel="stylesheet" href="/blog/css/font-awesome.min.css?rev=4.7.0.css">
-<link rel="stylesheet" href="/blog/css/style.css?rev=@@hash.css">
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
 
     
 
@@ -87,12 +87,12 @@ var _hmt = _hmt || [];
      >
     <div class="main-header-box">
         <a class="header-avatar" href="/" title='LJJ'>
-            <img src="/blog/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
             <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
             
-            <img src="/blog/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
             
         </div>
     </div>
@@ -105,7 +105,7 @@ var _hmt = _hmt || [];
                         <span class="sr-only"></span>
                         <i class="fa fa-bars"></i>
                     </span>
-                    <a class="navbar-brand" href="http://minicoderx.gitee.io/blog">
+                    <a class="navbar-brand" href="http://minicoderx.gitee.io">
                         小小代码网</a>
                 </div>
                 <div class="collapse navbar-collapse" id="main-menu">
@@ -166,7 +166,7 @@ var _hmt = _hmt || [];
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-none-link" href="/blog/tags/poi/" rel="tag">poi</a> <a class="tag-none-link" href="/blog/tags/word/" rel="tag">word</a>
+            <a class="tag-none-link" href="/tags/poi/" rel="tag">poi</a> <a class="tag-none-link" href="/tags/word/" rel="tag">word</a>
             
         </span>
     </span>
@@ -226,7 +226,7 @@ var _hmt = _hmt || [];
 </tbody></table>
 <h2 id="错误引用1-生成app提示类重复"><a href="#错误引用1-生成app提示类重复" class="headerlink" title="错误引用1-生成app提示类重复"></a>错误引用1-生成app提示类重复</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">implementation &#x27;org.apache.poi:poi-ooxml:3.14&#x27;</span><br><span class="line">implementation &#x27;org.apache.poi:poi-excelant:3.14&#x27;</span><br><span class="line">implementation &#x27;org.apache.poi:poi-examples:3.14&#x27;</span><br><span class="line">implementation &#x27;org.apache.xmlbeans:xmlbeans:2.6.0&#x27;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/./2021-04-03_175056.png" alt="图片"></p>
+<p><img src="/./2021-04-03_175056.png" alt="图片"></p>
 <h2 id="错误引用2-添加图片时doc错误"><a href="#错误引用2-添加图片时doc错误" class="headerlink" title="错误引用2-添加图片时doc错误"></a>错误引用2-添加图片时doc错误</h2><p>目前采用直接加载jar包的方式，引用库加载文件如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">implementation files(&#x27;libs/poi-3.8-20120326.jar&#x27;)</span><br><span class="line">implementation files(&#x27;libs/poi-ooxml-3.8-20120326.jar&#x27;)</span><br><span class="line">implementation files(&#x27;libs/poi-ooxml-schemas-3.8-20120326.jar&#x27;)</span><br><span class="line">implementation files(&#x27;libs/xmlbeans-2.3.0.jar&#x27;)</span><br><span class="line">implementation files(&#x27;libs/commons-logging-1.1.jar&#x27;)</span><br><span class="line">implementation files(&#x27;libs/dom4j-1.6.1.jar&#x27;)</span><br><span class="line">implementation files(&#x27;libs/stax-api-1.0.1.jar&#x27;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -315,9 +315,9 @@ var _hmt = _hmt || [];
 <li><p>插入图片的宽和高，一定要使用<code>Units.toEMU</code>方法，并传入想要显示的宽和高。直接传入宽和高无法显示</p>
 </li>
 </ol>
-<h1 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h1><p><img src="/blog/./word_display.gif" alt="动态演示"></p>
-<h2 id="原始内容"><a href="#原始内容" class="headerlink" title="原始内容"></a>原始内容</h2><p><img src="/blog/./2021-04-04_135523.png" alt="原始效果"></p>
-<h2 id="输出内容"><a href="#输出内容" class="headerlink" title="输出内容"></a>输出内容</h2><p><img src="/blog/./2021-04-04_140729.png" alt="输出内容"></p>
+<h1 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h1><p><img src="/./word_display.gif" alt="动态演示"></p>
+<h2 id="原始内容"><a href="#原始内容" class="headerlink" title="原始内容"></a>原始内容</h2><p><img src="/./2021-04-04_135523.png" alt="原始效果"></p>
+<h2 id="输出内容"><a href="#输出内容" class="headerlink" title="输出内容"></a>输出内容</h2><p><img src="/./2021-04-04_140729.png" alt="输出内容"></p>
 
     </div>
     
@@ -336,14 +336,14 @@ var _hmt = _hmt || [];
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/blog/2021/04/06/kotlin/" class="pre-post btn btn-default" title='kotlin如何创建匿名函数'>
+    <a href="/2021/04/06/kotlin/" class="pre-post btn btn-default" title='kotlin如何创建匿名函数'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             kotlin如何创建匿名函数</span>
     </a>
     
     
-    <a href="/blog/2021/03/28/dialog/" class="next-post btn btn-default" title='Dialog控件学习'>
+    <a href="/2021/03/28/dialog/" class="next-post btn btn-default" title='Dialog控件学习'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             Dialog控件学习</span><i class="fa fa-angle-right fa-fw"></i>
@@ -430,7 +430,7 @@ var _hmt = _hmt || [];
 
 
 
-<script src="/blog/js/app.js?rev=@@hash.js"></script>
+<script src="/js/app.js?rev=@@hash.js"></script>
 
 </body>
 </html>
